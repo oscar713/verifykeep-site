@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Statement Converter — PDF to QuickBooks, Xero & CSV | VerifyKeep</title>
+<meta name="description" content="Convert any bank statement PDF — including scans — into an import-ready CSV for QuickBooks Online or Xero. Every file is checked against the bank's own balances before it can export.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/bank-statement-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Bank Statement Converter — PDF to QuickBooks, Xero & CSV">
+<meta property="og:description" content="Turn bank statement PDFs into import-ready files for QuickBooks and Xero — validated against the bank's own totals before export.">
+<meta property="og:url" content="https://verifykeep.com/bank-statement-converter/">
+<meta property="og:image" content="https://verifykeep.com/report-verified.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bank Statement Converter — PDF to QuickBooks, Xero & CSV">
+<meta name="twitter:description" content="Turn bank statement PDFs into import-ready files for QuickBooks and Xero — validated against the bank's own totals before export.">
+<meta name="twitter:image" content="https://verifykeep.com/report-verified.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert a bank statement PDF to Excel or CSV?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Upload the PDF to VerifyKeep — it extracts every transaction, reconciles the totals against the statement's printed figures, and lets you download a generic CSV you can open in Excel, or a formatted file for QuickBooks Online or Xero." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you convert a scanned bank statement?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scanned or photographed statements are automatically routed through OCR before extraction. OCR output is then validated against the statement's printed totals — rows that can't be read confidently are flagged for review rather than silently included." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the converted file match the bank's totals?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every statement is checked five ways: opening balance plus deposits minus withdrawals must equal the printed closing balance, the extracted transaction count must match, deposit and withdrawal totals must match, every page is read, and anomalies are flagged. Export is blocked until it balances." }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats can I export?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Generic CSV, QuickBooks Online format, and Xero format. A statement can be exported multiple ways without re-uploading." }
+    },
+    {
+      "@type": "Question",
+      "name": "What statement types are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Checking and savings accounts, credit cards, brokerage statements, and combined multi-account statements — up to 100 MB and 500 pages per file, native PDFs and scans." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.6; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  img.resp { width: 100%; height: auto; display: block; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .hero { background: var(--navy-950); color: #fff; padding: 72px 0; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 60% at 80% 10%, rgba(18,180,126,.18), transparent 60%); }
+  .hero .wrap { position: relative; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .hero h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; font-weight: 650; letter-spacing: -0.02em; margin-top: 20px; max-width: 720px; }
+  .hero p.lede { margin-top: 24px; font-size: 19px; color: var(--slate-300); max-width: 640px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .fineprint { margin-top: 20px; font-size: 14px; color: var(--slate-400); }
+
+  article { padding: 64px 0; }
+  article h2 { font-size: clamp(26px, 3.4vw, 32px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; margin: 48px 0 16px; }
+  article h3 { font-size: 19px; font-weight: 700; margin: 28px 0 8px; }
+  article p, article li { font-size: 16.5px; color: var(--navy-900); margin-bottom: 14px; }
+  article p.muted, article li.muted { color: var(--slate-600); }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .prose-lead { font-size: 18.5px; color: var(--slate-600); }
+  table.fmt { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+  table.fmt th, table.fmt td { border: 1px solid var(--slate-200); padding: 12px 14px; text-align: left; }
+  table.fmt th { background: var(--slate-50); font-weight: 700; }
+  section.band { background: var(--slate-50); border-bottom: 1px solid var(--slate-200); padding: 56px 0; }
+  section.band h2 { margin: 0 0 24px; }
+  details.faq { border-bottom: 1px solid var(--slate-200); padding: 18px 0; }
+  details.faq summary { cursor: pointer; font-weight: 600; font-size: 17px; list-style: none; }
+  details.faq summary::after { content: "+"; float: right; color: var(--brand-700); font-size: 22px; font-weight: 400; }
+  details.faq[open] summary::after { content: "–"; }
+  details.faq p { margin-top: 12px; color: var(--slate-600); font-size: 15px; }
+  .cta-final { background: var(--navy-950); color: #fff; padding: 72px 0; text-align: center; }
+  .cta-final h2 { color: #fff; margin: 0 auto; max-width: 560px; }
+  .cta-final p { color: var(--slate-300); margin-top: 16px; }
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; border-top: 1px solid rgba(255,255,255,.08); }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bank-statement-converter/">Bank statement converter</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Bank statement converter</p>
+    <h1>Convert bank statement PDFs to CSV, QuickBooks or Xero — with the math checked first</h1>
+    <p class="lede">VerifyKeep extracts every transaction from bank, credit card and brokerage statements — including scans — then reconciles the file against the bank's own totals before you're allowed to export it.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/#waitlist">Join the waitlist →</a>
+    </div>
+    <p class="fineprint">First 3 pages free · No card required</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p class="prose-lead">Most converters give you rows that <em>look</em> right. A wrapped description becomes a phantom row, a credit lands as a debit, one transaction goes missing — and the spreadsheet is quietly wrong. VerifyKeep's difference is simple: <strong>opening balance + credits − debits must equal the closing balance the bank printed, or the file doesn't export.</strong></p>
+
+    <h2>What you can convert</h2>
+    <ul>
+      <li><strong>Checking and savings statements</strong> — any bank or credit union</li>
+      <li><strong>Credit card statements</strong> — card balances handled as debt, not cash, so signs stay correct</li>
+      <li><strong>Brokerage statements</strong> — transaction rows pulled from activity sections</li>
+      <li><strong>Combined multi-account statements</strong> — one PDF, multiple accounts, still reconciled per account</li>
+      <li><strong>Scanned or photographed statements</strong> — routed to OCR automatically, then validated the same way</li>
+    </ul>
+    <p>Files up to 100 MB and 500 pages. Blank pages are never counted or charged.</p>
+
+    <h2>Export formats</h2>
+    <table class="fmt">
+      <tr><th>Format</th><th>Best for</th></tr>
+      <tr><td>Generic CSV</td><td>Excel, Google Sheets, or any tool that takes a flat file</td></tr>
+      <tr><td>QuickBooks Online</td><td>Gear icon → Import bank transactions → map columns → For Review</td></tr>
+      <tr><td>Xero</td><td>Direct bank statement import</td></tr>
+    </table>
+
+    <h2>Why verification matters more than conversion</h2>
+    <p>A converted file that doesn't balance is worse than no file — you import it, post it, and find the discrepancy at month-end. VerifyKeep runs five checks against the statement's printed figures and shows the arithmetic for each one:</p>
+    <ul>
+      <li><strong>Balance proof</strong> — opening + deposits − withdrawals = printed closing balance, to the cent</li>
+      <li><strong>Transaction count</strong> — extracted rows must match the statement</li>
+      <li><strong>Deposit &amp; withdrawal totals</strong> — compared against the bank's printed totals</li>
+      <li><strong>Completeness</strong> — every page read, every date inside the statement period</li>
+      <li><strong>Anomalies</strong> — unusual or low-confidence rows flagged and highlighted for review</li>
+    </ul>
+    <p>If a check fails, the export is blocked and the report tells you which check failed and by how much. No silent fixes — amounts are never adjusted to force a balance.</p>
+
+    <h2>Scanned statements are the edge case most tools fail</h2>
+    <p>Photos and scans of paper statements need OCR before extraction, and OCR guesses — a "5" becomes an "S", a decimal point disappears. VerifyKeep routes scans through OCR, then applies the same reconciliation: the printed totals are the answer key, and anything that can't be read confidently is flagged next to the original page for side-by-side review instead of slipping into your export.</p>
+  </div>
+</article>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Frequently asked questions</h2>
+    <details class="faq"><summary>How do I convert a bank statement PDF to Excel or CSV?</summary><p>Upload the PDF — VerifyKeep extracts every transaction, reconciles totals against the printed figures, and lets you download a generic CSV for Excel or a formatted file for QuickBooks Online or Xero.</p></details>
+    <details class="faq"><summary>Can you convert a scanned bank statement?</summary><p>Yes. Scans are routed through OCR automatically, then validated against the statement's own totals. Rows that can't be read confidently are flagged for review rather than silently included.</p></details>
+    <details class="faq"><summary>Does the converted file match the bank's totals?</summary><p>It has to — opening balance + deposits − withdrawals must equal the printed closing balance, and transaction counts and totals must match. Export is blocked until it balances.</p></details>
+    <details class="faq"><summary>What statement types are supported?</summary><p>Checking, savings, credit card, brokerage and combined multi-account statements — up to 100 MB and 500 pages, native PDFs and scans.</p></details>
+    <details class="faq"><summary>How much does it cost?</summary><p>Priced per page with the cost shown before processing; the first 3 pages are free and blank pages are never charged. Failed pages are refunded automatically.</p></details>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Join the waitlist</h2>
+    <p>Be first in line when VerifyKeep opens — first 3 pages free, no card.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-primary" href="/#waitlist">Join the waitlist →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+    <div><a href="/">Home</a> · <a href="/bank-statement-converter/">Bank statement converter</a> · <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
