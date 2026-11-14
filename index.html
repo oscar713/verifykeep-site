@@ -251,10 +251,31 @@
   <div class="wrap">
     <h2 style="max-width:none">Verify the numbers. Keep the proof.</h2>
     <p style="margin-top:14px; font-size:18px">Join the launch waitlist — first three statements free when we open.</p>
-    <form id="wl" action="mailto:hello@verifykeep.com" method="post" enctype="text/plain">
+    <form id="wl" action="https://verifykeep-waitlist.campuzano713.workers.dev/" method="post">
       <input type="email" name="email" placeholder="you@firm.com" required aria-label="Email address">
       <button class="btn btn-primary" type="submit">Join the waitlist</button>
     </form>
+    <p id="wl-msg" class="fineprint" style="margin-top:12px" role="status"></p>
+    <script>
+      document.getElementById('wl').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var msg = document.getElementById('wl-msg');
+        var email = this.email.value.trim();
+        this.querySelector('button').disabled = true;
+        fetch(this.action, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok }; }); })
+          .then(function (res) {
+            msg.textContent = res.ok ? 'You\'re on the list — we\'ll email you at launch.' : 'That email did not look right — try again?';
+            msg.style.color = res.ok ? '#2dd49b' : '#f87171';
+          }).catch(function () {
+            msg.textContent = 'Could not reach the list — email hello@verifykeep.com instead.';
+            msg.style.color = '#f87171';
+          }).finally(function () { document.querySelector('#wl button').disabled = false; });
+      });
+    </script>
     <p class="fineprint" style="margin-top:18px">Or write us directly at <a href="mailto:hello@verifykeep.com" style="color:#2dd49b">hello@verifykeep.com</a></p>
   </div>
 </section>
