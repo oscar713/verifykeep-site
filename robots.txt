@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verifykeep.com/sitemap.xml
