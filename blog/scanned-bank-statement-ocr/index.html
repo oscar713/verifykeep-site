@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scanned Bank Statements: Why OCR Alone Isn't Enough | VerifyKeep</title>
+<meta name="description" content="Client photographed a paper statement? OCR extracts the characters — but only validation against the printed totals proves the extraction is right.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Scanned Bank Statements: Why OCR Alone Isn't Enough">
+<meta property="og:description" content="OCR extracts the characters — but only validation against the printed totals proves the extraction is right.">
+<meta property="og:url" content="https://verifykeep.com/blog/scanned-bank-statement-ocr/">
+<meta property="og:image" content="https://verifykeep.com/report-verified.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scanned Bank Statements: Why OCR Alone Isn't Enough">
+<meta name="twitter:description" content="OCR extracts the characters — but only validation against the printed totals proves the extraction is right.">
+<meta name="twitter:image" content="https://verifykeep.com/report-verified.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Scanned Bank Statements: Why OCR Alone Isn't Enough",
+  "description": "OCR extracts the characters — but only validation against the printed totals proves the extraction is right.",
+  "url": "https://verifykeep.com/blog/scanned-bank-statement-ocr/",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; font-weight: 650; letter-spacing: -0.02em; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bank-statement-converter/">Bank statement converter</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">Guides</p>
+    <h1>Scanned Bank Statements: Why OCR Alone Isn't Enough</h1>
+    <p class="meta">November 14, 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>It happens at the worst time: a client photographs a paper statement with their phone and emails it. Or hands you a scan of a printed statement from a closed account. There are no embedded characters to extract — the "PDF" is just a picture of a table. The only way in is OCR.</p>
+    <p>OCR works. But OCR alone is where good intentions go wrong.</p>
+
+    <h2>What OCR actually gives you</h2>
+    <p>Optical character recognition reads pixels and guesses characters. Modern OCR is genuinely good — but on financial tables it has specific failure modes:</p>
+    <ul>
+      <li><strong>Digit confusion</strong> — 0/O, 1/l/I, 5/S, 8/B are classic swaps, and each one silently corrupts an amount.</li>
+      <li><strong>Decimal drift</strong> — a faint period vanishes and $1,234.56 becomes $123,456.</li>
+      <li><strong>Column bleed</strong> — misaligned scans merge adjacent columns; a date can end up in the amount field.</li>
+      <li><strong>Skipped rows</strong> — faded print or skewed pages drop transactions entirely, with no error to find.</li>
+    </ul>
+    <p>None of these produce an error message. The file exports, the rows look plausible, and the damage only surfaces when reconciliation fails — or worse, when it doesn't.</p>
+
+    <h2>The real problem: nobody checks the math</h2>
+    <p>Here's the thing most "scanned statement to Excel" tools skip: the statement itself carries its own answer key. Opening balance, total credits, total debits, closing balance — printed right on the document. If OCR misread a digit anywhere, the extracted transactions won't reconcile to those printed totals.</p>
+    <p>A tool that extracts without validating produces output that <em>looks</em> correct and may not be. You only discover it downstream, inside your accounting software, at month-end.</p>
+
+    <h2>Extraction + validation: the only honest workflow</h2>
+    <p>The correct pipeline for a scanned statement is:</p>
+    <ol>
+      <li><strong>Detect</strong> that the page is a scan (no embedded text layer) and route to OCR — not the same path as a digital PDF.</li>
+      <li><strong>Extract</strong> every transaction: date, description, amount, direction.</li>
+      <li><strong>Validate</strong> against the printed summary: transaction count, deposit/withdrawal totals, and the balance identity (<code>opening + credits − debits = closing</code>).</li>
+      <li><strong>Flag</strong> low-confidence and anomalous rows for human review — a suspicious extraction should never silently ship.</li>
+    </ol>
+    <p>Step 3 is the one that changes everything. It's what turns "OCR best-guess" into "verified data."</p>
+
+    <h2>What VerifyKeep does with scans</h2>
+    <p>Upload a photographed or scanned statement and VerifyKeep detects the image-based pages, runs OCR, then applies the same five validation checks as a digital statement — balance reconciliation, transaction counts, deposit/withdrawal totals, extraction completeness, and anomaly detection. Low-confidence rows surface in a side-by-side review against the original page image. If the math can't close, the export is blocked and the report says exactly which check failed.</p>
+    <p>A scanned statement isn't a degraded input — it's just an input that needs validation even more.</p>
+
+    <div class="cta-box">
+      <h2>Scans welcome</h2>
+      <p>Join the waitlist — first 3 pages free, no card required.</p>
+      <a class="btn btn-primary" href="/#waitlist">Join the waitlist →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+    <div><a href="/">Home</a> · <a href="/bank-statement-converter/">Bank statement converter</a> · <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

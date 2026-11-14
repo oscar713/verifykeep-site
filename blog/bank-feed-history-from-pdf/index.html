@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Feed Expired? Getting Historical Transactions Out of PDFs | VerifyKeep</title>
+<meta name="description" content="QuickBooks and Xero bank feeds only reach back so far. When a client hands you 3 years of PDFs, here's how to get historical transactions out — and prove they're right.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Bank Feed Expired? Getting Historical Transactions Out of PDFs">
+<meta property="og:description" content="QuickBooks and Xero bank feeds only reach back so far. When a client hands you 3 years of PDFs, here's how to get historical transactions out — and prove they're right.">
+<meta property="og:url" content="https://verifykeep.com/blog/bank-feed-history-from-pdf/">
+<meta property="og:image" content="https://verifykeep.com/report-verified.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bank Feed Expired? Getting Historical Transactions Out of PDFs">
+<meta name="twitter:description" content="Bank feeds only reach back so far. When a client hands you 3 years of PDFs, here's how to get historical transactions out — and prove they're right.">
+<meta name="twitter:image" content="https://verifykeep.com/report-verified.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Bank Feed Expired? Getting Historical Transactions Out of PDFs",
+  "description": "QuickBooks and Xero bank feeds only reach back so far. When a client hands you 3 years of PDFs, here's how to get historical transactions out — and prove they're right.",
+  "url": "https://verifykeep.com/blog/bank-feed-history-from-pdf/",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; font-weight: 650; letter-spacing: -0.02em; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bank-statement-converter/">Bank statement converter</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">Guides</p>
+    <h1>Bank Feed Expired? Getting Historical Transactions Out of PDFs</h1>
+    <p class="meta">November 14, 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>Bank feeds are the easy path — until they aren't. A new client hands you three years of PDFs for a catch-up job, the account switched banks, the feed only reaches back 90 days, or the institution was never supported in the first place. The transactions exist. They're just trapped inside PDFs.</p>
+
+    <h2>Where the feed runs out</h2>
+    <p>QuickBooks Online and Xero feeds are limited in ways that only matter when it's already a problem:</p>
+    <ul>
+      <li><strong>Lookback limits</strong> — most banks serve 90 days; some stretch to 12–24 months. Older history doesn't exist as far as the feed is concerned.</li>
+      <li><strong>Dropped connections</strong> — feeds silently disconnect, and missing stretches never backfill.</li>
+      <li><strong>Closed accounts</strong> — once an account closes, its feed dies with it.</li>
+      <li><strong>Unsupported institutions</strong> — credit unions and smaller banks often never connect at all.</li>
+    </ul>
+    <p>For any of those, the only authoritative source is the statement itself — the PDF the bank produced.</p>
+
+    <h2>Why "just convert them" fails at scale</h2>
+    <p>Converting one statement is easy. Converting 36 statements is where sloppy tools cost you. Multiply the standard failure modes — wrapped descriptions becoming phantom rows, swapped debit/credit columns, dropped transactions at page breaks — across three years, and small per-statement errors compound into a books problem nobody can reconcile.</p>
+    <p>The volume changes the requirement: you don't need rows that look right, you need rows that are <em>provably</em> right, statement by statement.</p>
+
+    <h2>The batch workflow that works</h2>
+    <ol>
+      <li><strong>Collect every statement</strong> — checking, savings, credit cards, and any combined multi-account documents.</li>
+      <li><strong>Upload in batch</strong> — process the whole set at once, not one painful file at a time.</li>
+      <li><strong>Validate each statement</strong> — every converted file reconciles to its own printed totals: transaction count, credits, debits, closing balance. A statement that doesn't balance is flagged, not shipped.</li>
+      <li><strong>Review only the exceptions</strong> — flagged rows open side-by-side against the original page; clean statements need no eyeball time.</li>
+      <li><strong>Export in your software's format</strong> — CSV, QuickBooks, or Xero — and import.</li>
+    </ol>
+    <p>Step 3 is what makes batch conversion safe: an arithmetic proof per statement, not a leap of faith across three years.</p>
+
+    <h2>Month-end and catch-up jobs</h2>
+    <p>This is the month-end pattern: statements land all at once and the clock is running. The right tooling treats batch as the default — upload everything, validate everything, touch only what's flagged. If a page fails to process, it's refunded automatically; blank pages are free; you see the page count and cost before anything runs.</p>
+
+    <h2>How VerifyKeep handles history</h2>
+    <p>VerifyKeep validates every statement independently — balance reconciliation, counts, deposit/withdrawal totals, completeness, anomalies — and fails closed: an unbalanced statement gets flagged and blocked from export, never silently passed. Multi-account PDFs are split and validated per account. Scans get OCR plus the same checks. You end up with an import-ready file per statement, each proven against the bank's own numbers.</p>
+
+    <div class="cta-box">
+      <h2>Three years of PDFs? Bring them.</h2>
+      <p>Join the waitlist — first 3 pages free, no card required.</p>
+      <a class="btn btn-primary" href="/#waitlist">Join the waitlist →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+    <div><a href="/">Home</a> · <a href="/bank-statement-converter/">Bank statement converter</a> · <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
