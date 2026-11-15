@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export Brokerage Statement Transactions | VerifyKeep</title>
+<meta name="description" content="Export brokerage and investment statement transactions from PDF to a verified CSV — dividends, trades, and cash movements reconciled to the printed totals.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Export Brokerage Statement Transactions">
+<meta property="og:description" content="Export brokerage and investment statement transactions from PDF to a verified CSV — dividends, trades, and cash movements reconciled to the printed totals.">
+<meta property="og:url" content="https://verifykeep.com/blog/export-brokerage-statement-transactions/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Export Brokerage Statement Transactions">
+<meta name="twitter:description" content="Export brokerage statement transactions from PDF to a verified CSV — reconciled to the printed totals.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Export Brokerage Statement Transactions From PDF to a Verified CSV",
+  "description": "Export brokerage and investment statement transactions from PDF to a verified CSV — dividends, trades, and cash movements reconciled to the printed totals.",
+  "url": "https://verifykeep.com/blog/export-brokerage-statement-transactions/",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; font-weight: 650; letter-spacing: -0.02em; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bank-statement-converter/">Bank statement converter</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">Guides</p>
+    <h1>Export Brokerage Statement Transactions From PDF to a Verified CSV</h1>
+    <p class="meta">November 15, 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>Brokerage statements are the hardest PDFs in the category — and the ones no converter bothers to check. Schwab, Fidelity, Merrill and the rest print multi-section statements: cash management activity, dividend and interest tables, trade confirms, fee schedules, all interleaved with holdings summaries that look like transactions but aren't.</p>
+    <p>When a client hands you one of these for catch-up work, here's how to get the transactions out — and prove they're right.</p>
+
+    <h2>Why brokerage PDFs defeat generic converters</h2>
+    <ul>
+      <li><strong>Holdings tables aren't transactions</strong> — positions printed with quantities and values get extracted as phantom cash movements.</li>
+      <li><strong>Multiple cash sections</strong> — a combined statement can carry a core cash account plus a margin or sweep section; rows land in the wrong account.</li>
+      <li><strong>Share quantities in the amount column</strong> — a buy prints shares <em>and</em> dollars; naive extraction picks the wrong column.</li>
+      <li><strong>Reinvestments</strong> — dividend reinvestments print twice: once as income, once as a purchase. Some layouts mean count them once, others twice.</li>
+      <li><strong>Scans</strong> — older or mailed statements need OCR, which misreads the dense multi-column trade tables.</li>
+    </ul>
+
+    <h2>The check: does the cash section reconcile?</h2>
+    <p>Every brokerage statement prints the cash movement totals — beginning cash balance, deposits, income, disbursements, trades settled, ending cash balance. That's the answer key for the transactions section: if extracted cash rows don't reproduce the printed ending balance, something was dropped, doubled, or pulled from a holdings table.</p>
+    <ol>
+      <li>Cash-section transaction count matches the printed activity count.</li>
+      <li>Beginning cash + deposits + income − disbursements − settled trades = printed ending cash balance.</li>
+      <li>Flagged rows (dense tables, OCR uncertainty) reviewed against the original page.</li>
+    </ol>
+
+    <h2>The VerifyKeep workflow</h2>
+    <ol>
+      <li>Upload the statement — checking, savings, credit card, brokerage, or combined multi-account documents; scans route to OCR automatically.</li>
+      <li>Page count and cost shown before processing; blank pages are free.</li>
+      <li>Extraction separates transaction sections from holdings, then reconciles against the broker's printed totals — balance, counts, in/out totals, completeness, anomalies.</li>
+      <li>Flagged rows open side-by-side against the original PDF page.</li>
+      <li>Export a verified CSV — date, description, signed amount — for Excel, QuickBooks, or Xero.</li>
+    </ol>
+    <p>Statements that don't reconcile are blocked from export: the report names the failed check and the variance. Failed pages are refunded automatically.</p>
+
+    <h2>A note on what's in the CSV</h2>
+    <p>The export carries cash movements — deposits, withdrawals, dividends, interest, fees, and trade settlements as dated rows. Holdings snapshots and unrealized gains are summaries, not transactions, and stay out of the file.</p>
+
+    <div class="cta-box">
+      <h2>Try it on your next statement</h2>
+      <p>Join the waitlist — first 3 statements free, no card required.</p>
+      <a class="btn btn-primary" href="/#waitlist">Join the waitlist →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+    <div><a href="/">Home</a> · <a href="/bank-statement-converter/">Bank statement converter</a> · <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
