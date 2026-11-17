@@ -100,6 +100,11 @@
   th { text-align: start; padding: 10px 12px; border-bottom: 2px solid var(--slate-300); font-weight: 700; }
   td { padding: 10px 12px; border-bottom: 1px solid var(--slate-200); vertical-align: top; }
   td:first-child { font-weight: 600; white-space: nowrap; }
+  @media (max-width: 520px) {
+    table { font-size: 13.5px; }
+    th, td { padding: 8px 6px; overflow-wrap: anywhere; }
+    td:first-child { white-space: normal; }
+  }
 
   footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
   footer a { color: var(--slate-300); text-decoration: none; }
