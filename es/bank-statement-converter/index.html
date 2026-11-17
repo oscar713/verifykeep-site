@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convertidor de estados bancarios — PDF a QuickBooks, Xero y CSV | VerifyKeep</title>
+<meta name="description" content="Convierte cualquier estado bancario en PDF — incluidos escaneos — en un CSV listo para importar a QuickBooks Online o Xero. Cada archivo se verifica contra los saldos del propio banco antes de poder exportarlo.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/bank-statement-converter/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/bank-statement-converter/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/bank-statement-converter/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/bank-statement-converter/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/bank-statement-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Convertidor de estados bancarios — PDF a QuickBooks, Xero y CSV">
+<meta property="og:description" content="Convierte PDFs de estados bancarios en archivos listos para QuickBooks y Xero — validados contra los totales del propio banco antes de exportar.">
+<meta property="og:url" content="https://verifykeep.com/es/bank-statement-converter/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertidor de estados bancarios — PDF a QuickBooks, Xero y CSV">
+<meta name="twitter:description" content="Convierte PDFs de estados bancarios en archivos listos para QuickBooks y Xero — validados contra los totales del propio banco antes de exportar.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo convierto un estado bancario en PDF a Excel o CSV?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sube el PDF a VerifyKeep — extrae cada transacción, reconcilia los totales contra las cifras impresas del estado y te permite descargar un CSV genérico que puedes abrir en Excel, o un archivo formateado para QuickBooks Online o Xero." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pueden convertir un estado bancario escaneado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los estados escaneados o fotografiados se enrutan automáticamente por OCR antes de la extracción. La salida del OCR se valida contra los totales impresos del estado — las filas que no se leen con confianza se marcan para revisión en lugar de incluirse silenciosamente." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El archivo convertido coincide con los totales del banco?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cada estado se verifica de cinco maneras: saldo inicial más depósitos menos retiros debe igualar el saldo final impreso, el conteo de transacciones extraídas debe coincidir, los totales de depósitos y retiros deben coincidir, cada página se lee, y las anomalías se marcan. La exportación se bloquea hasta que cuadre." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué formatos puedo exportar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "CSV genérico, formato QuickBooks Online y formato Xero. Un estado puede exportarse en varios formatos sin volver a subirlo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipos de estados son compatibles?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cuentas corrientes y de ahorro, tarjetas de crédito, estados de corretaje y estados combinados de varias cuentas — hasta 100 MB y 500 páginas por archivo, PDFs nativos y escaneos." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.6; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  img.resp { width: 100%; height: auto; display: block; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid rgba(255,255,255,.14); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .hero { background: var(--navy-950); color: #fff; padding: 72px 0; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 60% at 80% 10%, rgba(18,180,126,.18), transparent 60%); }
+  .hero .wrap { position: relative; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .hero h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; font-weight: 650; letter-spacing: -0.02em; margin-top: 20px; max-width: 720px; }
+  .hero p.lede { margin-top: 24px; font-size: 19px; color: var(--slate-300); max-width: 640px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .fineprint { margin-top: 20px; font-size: 14px; color: var(--slate-400); }
+
+  article { padding: 64px 0; }
+  article h2 { font-size: clamp(26px, 3.4vw, 32px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; margin: 48px 0 16px; }
+  article h3 { font-size: 19px; font-weight: 700; margin: 28px 0 8px; }
+  article p, article li { font-size: 16.5px; color: var(--navy-900); margin-bottom: 14px; }
+  article p.muted, article li.muted { color: var(--slate-600); }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .prose-lead { font-size: 18.5px; color: var(--slate-600); }
+  table.fmt { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+  table.fmt th, table.fmt td { border: 1px solid var(--slate-200); padding: 12px 14px; text-align: left; }
+  table.fmt th { background: var(--slate-50); font-weight: 700; }
+  section.band { background: var(--slate-50); border-bottom: 1px solid var(--slate-200); padding: 56px 0; }
+  section.band h2 { margin: 0 0 24px; }
+  details.faq { border-bottom: 1px solid var(--slate-200); padding: 18px 0; }
+  details.faq summary { cursor: pointer; font-weight: 600; font-size: 17px; list-style: none; }
+  details.faq summary::after { content: "+"; float: right; color: var(--brand-700); font-size: 22px; font-weight: 400; }
+  details.faq[open] summary::after { content: "–"; }
+  details.faq p { margin-top: 12px; color: var(--slate-600); font-size: 15px; }
+  .cta-final { background: var(--navy-950); color: #fff; padding: 72px 0; text-align: center; }
+  .cta-final h2 { color: #fff; margin: 0 auto; max-width: 560px; }
+  .cta-final p { color: var(--slate-300); margin-top: 16px; }
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; border-top: 1px solid rgba(255,255,255,.08); }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/es/">Inicio</a>
+      <a href="/es/bank-statement-converter/">Convertidor de estados</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/bank-statement-converter/">EN</a><a href="/es/bank-statement-converter/" aria-current="true">ES</a><a href="/ar/bank-statement-converter/">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Convertidor de estados bancarios</p>
+    <h1>Convierte PDFs de estados bancarios a CSV, QuickBooks o Xero — con la matemática verificada primero</h1>
+    <p class="lede">VerifyKeep extrae cada transacción de estados bancarios, de tarjetas de crédito y de corretaje — incluidos escaneos — y luego reconcilia el archivo contra los totales del propio banco antes de permitirte exportarlo.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/es/#waitlist">Únete a la lista de espera →</a>
+    </div>
+    <p class="fineprint">Primeras 3 páginas gratis · Sin tarjeta</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p class="prose-lead">La mayoría de los convertidores te dan filas que <em>parecen</em> correctas. Una descripción que se parte en dos líneas se convierte en una fila fantasma, un crédito aterriza como débito, una transacción desaparece — y la hoja de cálculo queda silenciosamente mal. La diferencia de VerifyKeep es simple: <strong>saldo inicial + créditos − débitos debe igualar el saldo final que el banco imprimió, o el archivo no se exporta.</strong></p>
+
+    <h2>Lo que puedes convertir</h2>
+    <ul>
+      <li><strong>Estados de cuentas corrientes y de ahorro</strong> — cualquier banco o cooperativa de crédito</li>
+      <li><strong>Estados de tarjetas de crédito</strong> — los saldos de tarjeta se manejan como deuda, no como efectivo, así que los signos quedan correctos</li>
+      <li><strong>Estados de corretaje</strong> — filas de transacciones extraídas de las secciones de actividad</li>
+      <li><strong>Estados combinados de varias cuentas</strong> — un PDF, varias cuentas, reconciliado por cuenta</li>
+      <li><strong>Estados escaneados o fotografiados</strong> — enrutados a OCR automáticamente, luego validados igual</li>
+    </ul>
+    <p>Archivos hasta 100 MB y 500 páginas. Las páginas en blanco nunca se cuentan ni se cobran.</p>
+
+    <h2>Formatos de exportación</h2>
+    <table class="fmt">
+      <tr><th>Formato</th><th>Ideal para</th></tr>
+      <tr><td>CSV genérico</td><td>Excel, Google Sheets o cualquier herramienta que acepte un archivo plano</td></tr>
+      <tr><td>QuickBooks Online</td><td>Ícono de engranaje → Importar transacciones bancarias → mapear columnas → Para revisar</td></tr>
+      <tr><td>Xero</td><td>Importación directa de estados bancarios</td></tr>
+    </table>
+
+    <h2>Por qué la verificación importa más que la conversión</h2>
+    <p>Un archivo convertido que no cuadra es peor que no tener archivo — lo importas, lo contabilizas y descubres la diferencia al cierre del mes. VerifyKeep corre cinco verificaciones contra las cifras impresas del estado y te muestra la aritmética de cada una:</p>
+    <ul>
+      <li><strong>Prueba de saldo</strong> — inicial + depósitos − retiros = saldo final impreso, al centavo</li>
+      <li><strong>Conteo de transacciones</strong> — las filas extraídas deben coincidir con el estado</li>
+      <li><strong>Totales de depósitos y retiros</strong> — comparados contra los totales impresos del banco</li>
+      <li><strong>Completitud</strong> — cada página leída, cada fecha dentro del período del estado</li>
+      <li><strong>Anomalías</strong> — filas inusuales o de baja confianza marcadas y resaltadas para revisión</li>
+    </ul>
+    <p>Si una verificación falla, la exportación se bloquea y el reporte te dice cuál falló y por cuánto. Sin correcciones silenciosas — los montos nunca se ajustan para forzar el cuadre.</p>
+
+    <h2>Los estados escaneados son el caso donde la mayoría de las herramientas fallan</h2>
+    <p>Las fotos y escaneos de estados en papel necesitan OCR antes de la extracción, y el OCR adivina — un «5» se convierte en «S», un punto decimal desaparece. VerifyKeep enruta los escaneos por OCR y luego aplica la misma reconciliación: los totales impresos son la clave de respuestas, y cualquier cosa que no se pueda leer con confianza se marca junto a la página original para revisión lado a lado en lugar de colarse en tu exportación.</p>
+  </div>
+</article>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <details class="faq"><summary>¿Cómo convierto un estado bancario en PDF a Excel o CSV?</summary><p>Sube el PDF — VerifyKeep extrae cada transacción, reconcilia los totales contra las cifras impresas y te permite descargar un CSV genérico para Excel o un archivo formateado para QuickBooks Online o Xero.</p></details>
+    <details class="faq"><summary>¿Pueden convertir un estado bancario escaneado?</summary><p>Sí. Los escaneos se enrutan por OCR automáticamente, luego se validan contra los totales del propio estado. Las filas que no se leen con confianza se marcan para revisión en lugar de incluirse silenciosamente.</p></details>
+    <details class="faq"><summary>¿El archivo convertido coincide con los totales del banco?</summary><p>Tiene que — saldo inicial + depósitos − retiros debe igualar el saldo final impreso, y los conteos y totales de transacciones deben coincidir. La exportación se bloquea hasta que cuadre.</p></details>
+    <details class="faq"><summary>¿Qué tipos de estados son compatibles?</summary><p>Corrientes, de ahorro, tarjetas de crédito, corretaje y estados combinados de varias cuentas — hasta 100 MB y 500 páginas, PDFs nativos y escaneos.</p></details>
+    <details class="faq"><summary>¿Cuánto cuesta?</summary><p>Precio por página con el costo mostrado antes de procesar; las primeras 3 páginas son gratis y las páginas en blanco nunca se cobran. Las páginas fallidas se reembolsan automáticamente.</p></details>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Únete a la lista de espera</h2>
+    <p>Sé de los primeros cuando VerifyKeep abra — primeras 3 páginas gratis, sin tarjeta.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-primary" href="/es/#waitlist">Únete a la lista de espera →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+    <div><a href="/es/">Inicio</a> · <a href="/es/bank-statement-converter/">Convertidor de estados</a> · <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

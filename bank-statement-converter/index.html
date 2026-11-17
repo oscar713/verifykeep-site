@@ -7,6 +7,10 @@
 <meta name="description" content="Convert any bank statement PDF — including scans — into an import-ready CSV for QuickBooks Online or Xero. Every file is checked against the bank's own balances before it can export.">
 <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/bank-statement-converter/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/bank-statement-converter/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/bank-statement-converter/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/bank-statement-converter/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/bank-statement-converter/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VerifyKeep">
 <meta property="og:title" content="Bank Statement Converter — PDF to QuickBooks, Xero & CSV">
@@ -77,6 +81,9 @@
   header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
   header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid rgba(255,255,255,.14); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
   @media (max-width: 760px) {
     header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
     header nav { justify-content: space-between; }
@@ -130,6 +137,7 @@
       <a href="/">Home</a>
       <a href="/bank-statement-converter/">Bank statement converter</a>
       <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/bank-statement-converter/" aria-current="true">EN</a><a href="/es/bank-statement-converter/">ES</a><a href="/ar/bank-statement-converter/">AR</a></span>
     </nav>
   </div>
 </header>
