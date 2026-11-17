@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://verifykeep.com/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/bank-statement-converter/</loc>
@@ -17,65 +21,289 @@
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/why-converted-statement-doesnt-balance/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/scanned-bank-statement-ocr/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/bank-feed-history-from-pdf/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/convert-bank-statement-to-excel/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/credit-card-statement-to-csv/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/export-brokerage-statement-transactions/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/blog/docuclipper-alternative/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/es/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/"/>
   </url>
   <url>
     <loc>https://verifykeep.com/ar/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-quickbooks/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/why-converted-statement-doesnt-balance/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/scanned-bank-statement-ocr/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/bank-feed-history-from-pdf/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/convert-bank-statement-to-excel/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/credit-card-statement-to-csv/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/export-brokerage-statement-transactions/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/es/blog/docuclipper-alternative/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-quickbooks/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-quickbooks/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/why-converted-statement-doesnt-balance/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/why-converted-statement-doesnt-balance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/why-converted-statement-doesnt-balance/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/scanned-bank-statement-ocr/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/scanned-bank-statement-ocr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/scanned-bank-statement-ocr/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/bank-feed-history-from-pdf/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/bank-feed-history-from-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/bank-feed-history-from-pdf/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-xero/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-xero/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/convert-bank-statement-to-excel/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-to-excel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/credit-card-statement-to-csv/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/credit-card-statement-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/export-brokerage-statement-transactions/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/export-brokerage-statement-transactions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/export-brokerage-statement-transactions/"/>
+  </url>
+  <url>
+    <loc>https://verifykeep.com/ar/blog/docuclipper-alternative/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/docuclipper-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/docuclipper-alternative/"/>
   </url>
 </urlset>

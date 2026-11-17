@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convierte un estado de cuenta a Excel (verificado) | VerifyKeep</title>
+<meta name="description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un archivo Excel/CSV validado, con cada fila verificada contra los totales impresos en el propio estado.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-to-excel/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-to-excel/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Convierte un estado de cuenta a Excel">
+<meta property="og:description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un archivo Excel/CSV validado, con cada fila verificada contra los totales impresos en el propio estado.">
+<meta property="og:url" content="https://verifykeep.com/es/blog/convert-bank-statement-to-excel/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convierte un estado de cuenta a Excel">
+<meta name="twitter:description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un archivo Excel/CSV validado, con cada fila verificada contra los totales impresos en el propio estado.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Convierte un estado de cuenta a Excel sin volver a teclear (y sabiendo que está bien)",
+  "description": "Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un archivo Excel/CSV validado, con cada fila verificada contra los totales impresos en el propio estado.",
+  "url": "https://verifykeep.com/es/blog/convert-bank-statement-to-excel/",
+  "inLanguage": "es",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --rule: #1c2f4d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; font-weight: 650; letter-spacing: -0.02em; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/es/">Inicio</a>
+      <a href="/bank-statement-converter/">Conversor</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/blog/convert-bank-statement-to-excel/">EN</a><a href="/es/blog/convert-bank-statement-to-excel/" aria-current="true">ES</a><a href="/ar/blog/convert-bank-statement-to-excel/">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">Guías</p>
+    <h1>Convierte un estado de cuenta a Excel sin volver a teclear (y sabiendo que está bien)</h1>
+    <p class="meta">15 de noviembre de 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>Cada mes llega el mismo trabajo al escritorio de alguien: el estado de cuenta es un PDF, la hoja de cálculo necesita filas, y lo que hay entre ambos es trabajo manual. Copiar y pegar revuelve las columnas, los conversores genéricos producen un archivo que nadie revisó, y un solo decimal mal leído se propaga por toda la conciliación.</p>
+    <p>Así se obtienen filas limpias de Excel a partir de un estado de cuenta en PDF — y esta es la verificación que decide si el resultado es confiable.</p>
+
+    <h2>Por qué la conversión falla en silencio</h2>
+    <p>Los estados de cuenta están diseñados para personas, no para hojas de cálculo. Los modos de falla de una conversión simple de PDF a Excel:</p>
+    <ul>
+      <li><strong>Descripciones en dos líneas</strong> — un nombre de comercio en dos líneas se convierte en una segunda fila fantasma, a veces sin importe, a veces como una transacción extra completa.</li>
+      <li><strong>Columnas de débito/crédito</strong> — los estados imprimen el dinero que entra y sale en columnas separadas; un conversor que las aplana puede invertir el signo de cada fila.</li>
+      <li><strong>Columnas de saldo acumulado</strong> — el saldo por fila no es una transacción. La extracción ingenua lo convierte en una.</li>
+      <li><strong>Escaneos</strong> — los estados fotografiados o enviados por fax necesitan OCR primero, y el OCR lee mal los decimales y fusiona columnas.</li>
+      <li><strong>Estados de varias cuentas</strong> — los estados combinados de cheques + ahorros intercalan secciones; las filas terminan en la cuenta equivocada.</li>
+    </ul>
+    <p>El archivo abre bien en Excel. Cada uno de estos errores se esconde dentro.</p>
+
+    <h2>La verificación que nadie hace: ¿cuadra?</h2>
+    <p>El propio estado de cuenta contiene la clave de respuestas. Imprime su propio saldo inicial, número de transacciones, total de depósitos, total de retiros y saldo final. Si las filas extraídas no pueden reproducir exactamente esas cifras, la conversión falló — en algún lugar, una transacción falta, está duplicada o se leyó mal.</p>
+    <p>Antes de usar un estado convertido para cualquier cosa, verifica tres cosas:</p>
+    <ol>
+      <li>El número de transacciones extraídas coincide con el conteo impreso en el estado.</li>
+      <li>Saldo inicial + total de créditos − total de débitos es igual al saldo final impreso.</li>
+      <li>Cada fila marcada o de baja confianza se revisa a ojo contra la página original.</li>
+    </ol>
+    <p>La mayoría de los conversores se saltan las tres. Esa es la diferencia entre una hoja de cálculo y una hoja de cálculo verificada.</p>
+
+    <h2>El flujo de trabajo de VerifyKeep</h2>
+    <ol>
+      <li><strong>Sube el PDF</strong> — estados de cheques, ahorros, tarjeta de crédito, correduría o combinados de varias cuentas; las páginas escaneadas van a OCR automáticamente.</li>
+      <li><strong>Ve primero el conteo de páginas y el costo</strong> — las páginas en blanco son gratis.</li>
+      <li><strong>Extracción + validación en una pasada</strong> — cada transacción se extrae y se verifica contra las cifras impresas por el propio banco: conciliación de saldo, conteo de transacciones, totales de depósitos/retiros, integridad de la extracción y anomalías.</li>
+      <li><strong>Revisa las filas marcadas</strong> — todo lo de baja confianza se abre lado a lado junto a la página original del PDF.</li>
+      <li><strong>Exporta</strong> — un CSV limpio se abre directamente en Excel (o se importa a QuickBooks / Xero si ese es su destino).</li>
+    </ol>
+    <p>Si el estado no concilia, la exportación se bloquea — el informe muestra qué verificación falló y por cuánto. Las filas marcadas para revisión siguen marcadas en la exportación en lugar de pasar en silencio. Las páginas fallidas se reembolsan automáticamente.</p>
+
+    <h2>Cómo se ve el archivo de Excel</h2>
+    <p>Una fila por transacción: fecha, descripción, importe con signo (el dinero que entra en positivo, el que sale en negativo), saldo acumulado cuando el estado lo imprime, y la sección del estado de la que proviene — así los estados combinados quedan separados por cuenta. Nada partido, nada inventado, nada faltante.</p>
+
+    <h2>Cuándo todavía hay que teclear</h2>
+    <p>Casi nunca — incluso los escaneos con calidad de fax se extraen; solo marcan más filas para revisión. La excepción es un estado tan dañado que no se pueden leer los propios totales del banco; cuando eso ocurre, el informe lo dice en lugar de adivinar.</p>
+
+    <div class="cta-box">
+      <h2>Pruébalo con tu próximo estado de cuenta</h2>
+      <p>Únete a la lista — primeros 3 estados gratis, sin tarjeta.</p>
+      <a class="btn btn-primary" href="/es/#waitlist">Únete a la lista →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · Estados de cuenta dentro. Libros cuadrados fuera.</div>
+    <div><a href="/bank-statement-converter/">Conversor</a> · <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a> · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

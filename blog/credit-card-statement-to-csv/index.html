@@ -7,6 +7,10 @@
 <meta name="description" content="Convert a credit card statement PDF — including scans — into a verified CSV, with charges, payments and the sign direction checked against the printed totals.">
 <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/credit-card-statement-to-csv/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VerifyKeep">
 <meta property="og:title" content="Convert a Credit Card Statement to CSV">
@@ -47,6 +51,7 @@
     --slate-300: #cbd5e1;
     --slate-400: #94a3b8;
     --slate-600: #475569;
+    --rule: #1c2f4d;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
@@ -61,6 +66,9 @@
   header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
   header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
   @media (max-width: 760px) {
     header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
     header nav { justify-content: space-between; }
@@ -99,6 +107,7 @@
       <a href="/">Home</a>
       <a href="/bank-statement-converter/">Bank statement converter</a>
       <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/blog/credit-card-statement-to-csv/" aria-current="true">EN</a><a href="/es/blog/credit-card-statement-to-csv/">ES</a><a href="/ar/blog/credit-card-statement-to-csv/">AR</a></span>
     </nav>
   </div>
 </header>
