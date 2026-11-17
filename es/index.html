@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VerifyKeep — Estados de cuenta a CSV verificados, listos para importar</title>
+<meta name="description" content="VerifyKeep convierte estados de cuenta bancarios en PDF a CSV listos para importar a QuickBooks Online y Xero, y luego verifica cada estado contra los saldos impresos por el banco. Si no cuadra, no sale.">
+<link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/">
+<meta name="google-site-verification" content="YEHt8uGkWAJbz0lwX3FKwoiRFzik9wPTO_pddp6rg0Q">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="VerifyKeep — Estados de cuenta a CSV verificados, listos para importar">
+<meta property="og:description" content="Convierte estados de cuenta bancarios en PDF a CSV listos para QuickBooks y Xero. Cada estado verificado contra los propios saldos del banco: si no cuadra, no sale.">
+<meta property="og:url" content="https://verifykeep.com/es/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VerifyKeep — Estados de cuenta a CSV verificados, listos para importar">
+<meta name="twitter:description" content="Convierte estados de cuenta bancarios en PDF a CSV listos para QuickBooks y Xero. Cada estado verificado contra los propios saldos del banco.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VerifyKeep",
+  "url": "https://verifykeep.com/es/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "es",
+  "description": "VerifyKeep convierte estados de cuenta bancarios en PDF a CSV listos para importar a QuickBooks Online y Xero, y luego verifica cada estado contra los saldos impresos por el banco.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--mint); color: var(--ink); }
+  body {
+    font-family: var(--font);
+    font-optical-sizing: auto;
+    color: var(--ink-2);
+    line-height: 1.55;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+  img.resp { width: 100%; height: auto; display: block; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+    transition: color .18s ease, background .18s ease;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta {
+    color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px;
+  }
+  header nav a.nav-cta:hover { background: var(--mint); transform: translateY(-1px); }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  /* ---------- shared ---------- */
+  section { position: relative; }
+  .section { min-height: 100svh; display: flex; flex-direction: column; }
+  .section .wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; padding-top: 96px; padding-bottom: 72px; }
+  .dark { background: var(--ink); color: #fff; }
+  .light { background: var(--paper); color: var(--ink-2); }
+  h1 {
+    font-size: clamp(44px, 5.6vw, 68px); line-height: 1.0; font-weight: 750;
+    letter-spacing: -0.028em; color: #fff; font-variation-settings: "opsz" 32;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(30px, 3.6vw, 44px); font-weight: 730; letter-spacing: -0.024em;
+    line-height: 1.08; text-wrap: balance; font-variation-settings: "opsz" 32;
+  }
+  .light h2 { color: var(--ink-2); }
+  .lead { font-size: 18px; max-width: 620px; margin-top: 22px; color: var(--slate-300); }
+  .light .lead { color: var(--slate-600); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 8px; padding: 13px 26px; font-weight: 700; font-size: 15px;
+    text-decoration: none; border: 0; cursor: pointer;
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary { background: var(--mint); color: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 8px 24px rgba(18,180,126,.28); }
+  .btn-primary:hover { background: var(--mint-bright); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(18,180,126,.36); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { border: 1px solid var(--rule); color: #fff; background: transparent; }
+  .btn-ghost:hover { background: rgba(255,255,255,.05); transform: translateY(-2px); }
+  .fineprint { font-size: 13.5px; color: var(--slate-400); }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: var(--nav); }
+  .hero .wrap { padding-top: 64px; padding-bottom: 0; justify-content: flex-start; }
+  .hero-grid { display: grid; gap: 48px; }
+  @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr .9fr; } }
+  .hero .lead { max-width: 540px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+  /* The check rail — ruled ledger column */
+  .rail { border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; align-self: start; }
+  .rail-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 18px; border-bottom: 1px solid var(--rule);
+    font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--slate-400);
+  }
+  .rail-head .live { color: var(--mint-bright); display: flex; align-items: center; gap: 6px; }
+  .rail-head .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint-bright); box-shadow: 0 0 8px var(--mint-bright); }
+  .rail ul { list-style: none; }
+  .rail li { display: flex; gap: 16px; align-items: baseline; padding: 15px 18px; border-bottom: 1px solid var(--rule); }
+  .rail li:last-child { border-bottom: 0; }
+  .rail .key { flex: 0 0 24px; font-size: 13px; font-weight: 800; color: var(--mint-bright); font-variant-numeric: tabular-nums; }
+  .rail .name { font-weight: 650; font-size: 15px; color: #fff; }
+  .rail .what { font-size: 13.5px; color: var(--slate-400); margin-top: 2px; }
+  .rail .tick { margin-left: auto; color: var(--mint-bright); font-weight: 800; }
+
+  /* Hero ledger table — bleeds off the bottom edge */
+  .ledger-frame { margin: 56px -40px 0; position: relative; }
+  .ledger-frame::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px;
+    background: linear-gradient(to bottom, rgba(7,18,36,0), var(--ink) 88%);
+    pointer-events: none;
+  }
+  .ledger {
+    border-top: 1px solid var(--rule); background: rgba(255,255,255,.025);
+    font-variant-numeric: tabular-nums;
+  }
+  .ledger .lrow {
+    display: grid; grid-template-columns: 150px 1fr 130px 44px; gap: 20px;
+    padding: 13px 40px; border-bottom: 1px solid var(--rule);
+    font-size: 14.5px; align-items: baseline;
+  }
+  .ledger .ld { color: var(--slate-400); }
+  .ledger .ln { color: #fff; font-weight: 600; text-align: right; }
+  .ledger .lc { color: var(--mint-bright); font-weight: 800; text-align: center; }
+  .ledger .lhead { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--slate-400); }
+
+  /* ---------- ruled list (no cards) ---------- */
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--line); }
+  .dark .ruled { border-top-color: var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--line); padding: 30px 0 26px; display: grid; gap: 8px; }
+  .dark .ruled li { border-bottom-color: var(--rule); }
+  @media (min-width: 800px) { .ruled li { grid-template-columns: 340px 1fr; gap: 48px; align-items: baseline; } }
+  .proof .ruled li { grid-template-columns: 1fr; gap: 6px; padding: 22px 0 20px; }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .dark .ruled h3 { color: #fff; }
+  .ruled p { color: var(--slate-600); font-size: 15.5px; max-width: 640px; }
+  .dark .ruled p { color: var(--slate-300); }
+
+  /* ---------- steps row ---------- */
+  .steps { margin-top: 52px; border-top: 1px solid var(--rule); }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .step .no {
+    font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 800; color: var(--mint-bright);
+    border: 1px solid var(--rule); border-radius: 6px; height: 34px; width: 46px;
+    display: flex; align-items: center; justify-content: center; background: rgba(18,180,126,.08);
+  }
+  .step h3 { font-size: 17.5px; color: #fff; font-weight: 700; }
+  .step p { font-size: 15px; color: var(--slate-300); margin-top: 5px; max-width: 780px; }
+
+  /* ---------- check figure ---------- */
+  .proof { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 900px) { .proof { grid-template-columns: 1fr 1fr; } }
+  .shot {
+    border-radius: 14px; overflow: hidden; background: #fff;
+    box-shadow: 0 32px 80px rgba(0,0,0,.45), 0 4px 16px rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .light .shot { border-color: var(--line); box-shadow: 0 24px 60px rgba(15,23,42,.12); }
+  .checks-a-e { list-style: none; margin-top: 36px; }
+  .checks-a-e li { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .checks-a-e .checkid {
+    flex: 0 0 32px; height: 32px; border: 1px solid var(--rule); border-radius: 6px;
+    background: rgba(18,180,126,.1); color: var(--mint-bright);
+    font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
+  .checks-a-e h3 { font-size: 16px; color: #fff; font-weight: 700; }
+  .checks-a-e p { font-size: 14.5px; color: var(--slate-300); margin-top: 4px; }
+
+  /* ---------- pricing ---------- */
+  .plans { margin-top: 52px; border-top: 1px solid var(--line); display: grid; }
+  @media (min-width: 800px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+  .plan { padding: 34px 32px 30px 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 800px) { .plan { border-bottom: 0; border-right: 1px solid var(--line); padding-right: 32px; } .plan:last-child { border-right: 0; } .plan + .plan { padding-left: 32px; } }
+  .plan h3 { font-size: 15px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate-500); }
+  .plan .price { font-size: 40px; font-weight: 750; letter-spacing: -0.02em; margin-top: 12px; font-variant-numeric: tabular-nums; }
+  .plan .price span { font-size: 15px; font-weight: 500; color: var(--slate-400); letter-spacing: 0; }
+  .plan p { font-size: 15px; color: var(--slate-600); margin-top: 10px; }
+  .plan .deal { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 800; letter-spacing: .06em; color: var(--mint-deep); background: rgba(18,180,126,.1); border: 1px solid rgba(18,180,126,.3); padding: 5px 10px; border-radius: 6px; }
+
+  /* ---------- faq ---------- */
+  .faq-list { margin-top: 44px; border-top: 1px solid var(--line); max-width: 860px; }
+  details.faq { border-bottom: 1px solid var(--line); }
+  details.faq summary {
+    cursor: pointer; font-weight: 650; font-size: 17px; list-style: none;
+    padding: 22px 44px 22px 0; position: relative; color: var(--ink-2);
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "+"; position: absolute; right: 8px; top: 20px;
+    color: var(--mint-deep); font-size: 24px; font-weight: 400; transition: transform .2s ease;
+  }
+  details.faq[open] summary::after { content: "−"; }
+  details.faq p { padding: 0 0 24px; color: var(--slate-600); font-size: 15.5px; max-width: 720px; }
+
+  /* ---------- closing ---------- */
+  footer.closing { background: var(--ink); min-height: 100svh; display: flex; flex-direction: column; }
+  footer.closing .wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; padding-top: 120px; padding-bottom: 48px; }
+  .close-inner { max-width: 720px; }
+  .waitlist form { display: flex; gap: 10px; max-width: 480px; margin-top: 36px; flex-wrap: wrap; }
+  .waitlist input[type=email] {
+    flex: 1; min-width: 240px; padding: 14px 16px; border-radius: 8px;
+    border: 1px solid var(--rule); background: var(--ink-2); color: #fff; font-size: 15.5px; font-family: var(--font);
+    transition: border-color .18s ease;
+  }
+  .waitlist input[type=email]:focus { outline: none; border-color: var(--mint-bright); }
+  .waitlist input::placeholder { color: var(--slate-400); }
+  .foot-links { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13.5px; color: var(--slate-400); }
+  .foot-links a { color: var(--slate-300); text-decoration: none; }
+  .foot-links a:hover { color: #fff; }
+  .foot-links nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  /* ---------- entrance & micro-motion ---------- */
+  @keyframes enter-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes tick-in { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+  [data-enter] { animation: enter-up .7s cubic-bezier(.22,.68,.32,1) backwards; }
+  [data-enter="2"] { animation-delay: .12s; }
+  [data-enter="3"] { animation-delay: .22s; }
+  [data-enter="4"] { animation-delay: .34s; }
+  .rail li { opacity: 0; animation: tick-in .5s cubic-bezier(.22,.68,.32,1) forwards; }
+  .rail li:nth-child(1) { animation-delay: .55s; }
+  .rail li:nth-child(2) { animation-delay: .68s; }
+  .rail li:nth-child(3) { animation-delay: .81s; }
+  .rail li:nth-child(4) { animation-delay: .94s; }
+  .rail li:nth-child(5) { animation-delay: 1.07s; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .rail li { opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .wrap { padding-left: 24px; padding-right: 24px; }
+    .section .wrap { padding-top: 84px; padding-bottom: 56px; }
+    header nav a:not(.nav-cta) { padding: 8px 8px; font-size: 13px; }
+    .ledger-frame { margin: 44px -24px 0; }
+    .ledger .lrow { padding: 12px 24px; grid-template-columns: 110px 1fr 90px 30px; gap: 12px; font-size: 13px; }
+    .rail { display: none; }
+    h1 { font-size: clamp(40px, 10vw, 52px); }
+  }
+  @media (max-width: 520px) {
+    header nav a:not(.nav-cta):not(:first-child) { display: none; }
+    .hero .wrap { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/bank-statement-converter/">Conversor</a>
+      <a href="#how">Cómo funciona</a>
+      <a href="#checks">Cinco verificaciones</a>
+      <a href="#pricing">Precios</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a class="nav-cta" href="#waitlist">Únete a la lista</a>
+      <span class="langs"><a href="/">EN</a><a href="/es/" aria-current="true">ES</a><a href="/ar/">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="section dark hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 data-enter>Verificado antes<br>de contabilizar.</h1>
+        <p class="lead" data-enter="2">VerifyKeep convierte estados de cuenta bancarios en PDF a CSV listos para importar a QuickBooks Online y Xero — y luego reconcilia cada estado contra las cifras impresas por el propio banco. Si no cuadra, no sale.</p>
+        <div class="cta-row" data-enter="3">
+          <a class="btn btn-primary" href="#waitlist">Únete a la lista →</a>
+          <a class="btn btn-ghost" href="#how">Cómo funciona</a>
+        </div>
+        <p class="fineprint" data-enter="4" style="margin-top:20px">Lanzamiento próximo · Primeros 3 estados gratis · Sin tarjeta</p>
+      </div>
+      <aside class="rail" data-enter="3" aria-label="Las cinco verificaciones">
+        <div class="rail-head"><span>Estado VK-2026-0417</span><span class="live">Verificando</span></div>
+        <ul>
+          <li><span class="key">A</span><div><span class="name">Prueba de saldo</span><div class="what">Apertura + créditos − débitos = cierre, al centavo</div></div><span class="tick">✓</span></li>
+          <li><span class="key">B</span><div><span class="name">Conteo de transacciones</span><div class="what">Las filas extraídas coinciden con el conteo impreso</div></div><span class="tick">✓</span></li>
+          <li><span class="key">C</span><div><span class="name">Totales coinciden</span><div class="what">Depósitos y retiros cuadran con el estado</div></div><span class="tick">✓</span></li>
+          <li><span class="key">D</span><div><span class="name">Integridad</span><div class="what">Cada página leída, cada fecha dentro del periodo</div></div><span class="tick">✓</span></li>
+          <li><span class="key">E</span><div><span class="name">Anomalías</span><div class="what">Filas de baja confianza marcadas para revisión</div></div><span class="tick">✓</span></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="ledger-frame" data-enter="4">
+      <div class="ledger" aria-hidden="true">
+        <div class="lrow lhead"><span>Fecha</span><span>Descripción</span><span style="text-align:right">Importe</span><span></span></div>
+        <div class="lrow"><span class="ld num">03 abr 2026</span><span>Saldo inicial</span><span class="ln num">$3,248.17</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">07 abr 2026</span><span>Retainer de cliente — Northwind Dental</span><span class="ln num">+$8,750.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">10 abr 2026</span><span>Material de oficina — Staples</span><span class="ln num">−$87.42</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">14 abr 2026</span><span>Nómina — Gusto</span><span class="ln num">−$4,125.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">17 abr 2026</span><span>Factura #1042 — Harbor &amp; Co.</span><span class="ln num">+$1,860.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">21 abr 2026</span><span>Servicios — energía municipal</span><span class="ln num">−$143.67</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">24 abr 2026</span><span>Pago de cliente — Beacon Realty</span><span class="ln num">+$4,610.25</span><span class="lc">✓</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section light">
+  <div class="wrap">
+    <h2>Convertido no es lo mismo que correcto.</h2>
+    <ul class="ruled">
+      <li>
+        <h3>Un CSV puede verse bien y seguir siendo incorrecto.</h3>
+        <p>Una fila omitida o un importe mal leído no se anuncia solo. Aparece semanas después como una conciliación que no cierra — y sin forma de rastrear qué línea la rompió.</p>
+      </li>
+      <li>
+        <h3>Revisar columnas a mano no escala.</h3>
+        <p>Verificar cada estado contra sus totales impresos consume las horas que intentabas ahorrar — cada estado, cada cliente, cada mes.</p>
+      </li>
+      <li>
+        <h3>Las correcciones invisibles son un riesgo.</h3>
+        <p>Cuando una herramienta ajusta cifras silenciosamente para que un archivo importe, el rastro hacia el documento original desaparece. VerifyKeep nunca edita importes — un estado que no puede probarse se detiene en la puerta.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section dark" id="how">
+  <div class="wrap">
+    <h2>De PDF a un archivo que puedes defender.</h2>
+    <div class="steps">
+      <div class="step"><span class="no num">01</span><div><h3>Sube el PDF</h3><p>Estados bancarios, de tarjeta de crédito o de correduría — escaneos y fotos incluidos — hasta 100 MB y 500 páginas por archivo.</p></div></div>
+      <div class="step"><span class="no num">02</span><div><h3>Ve el costo primero</h3><p>El conteo de páginas y el costo aparecen antes de procesar páginas de pago. Las páginas en blanco nunca se cobran; las páginas fallidas se reembolsan.</p></div></div>
+      <div class="step"><span class="no num">03</span><div><h3>Corren cinco verificaciones</h3><p>Cada estado se reconcilia contra los propios números del banco, mostrando la aritmética — no solo una marca de aprobado.</p></div></div>
+      <div class="step"><span class="no num">04</span><div><h3>Exporta con prueba</h3><p>Descarga un CSV para QuickBooks Online, Xero o genérico cuando el estado se verifica. El informe de validación viaja con él.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIVE CHECKS ============ -->
+<section class="section dark" id="checks" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="proof">
+      <div>
+        <h2>Cada estado tiene que probarse.</h2>
+        <p class="lead">Cada verificación muestra los números reales y la aritmética detrás — para que veas por qué un estado pasó, no solo que pasó.</p>
+        <ul class="checks-a-e">
+          <li><span class="checkid">A</span><div><h3>Prueba de saldo</h3><p>Saldo inicial + depósitos − retiros debe igualar el saldo final impreso. Al centavo.</p></div></li>
+          <li><span class="checkid">B</span><div><h3>Conteo de transacciones</h3><p>El número de filas extraídas debe coincidir con el conteo que imprimió el banco.</p></div></li>
+          <li><span class="checkid">C</span><div><h3>Totales de depósitos y retiros</h3><p>Los totales extraídos se comparan con los totales del estado.</p></div></li>
+          <li><span class="checkid">D</span><div><h3>Integridad</h3><p>Se lee cada página y cada fecha cae dentro del periodo del estado.</p></div></li>
+          <li><span class="checkid">E</span><div><h3>Anomalías</h3><p>Las filas inusuales o de baja confianza se marcan y resaltan para revisión.</p></div></li>
+        </ul>
+      </div>
+      <figure class="shot"><img class="resp" src="../report-verified.webp" alt="Informe de validación de VerifyKeep mostrando un estado verificado con la aritmética de conciliación de saldos" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPORT GATE ============ -->
+<section class="section light">
+  <div class="wrap">
+    <div class="proof">
+      <figure class="shot"><img class="resp" src="../transactions-flagged.webp" alt="Filas de transacciones marcadas en la pantalla de revisión de VerifyKeep" loading="lazy"></figure>
+      <div>
+        <h2>Si no cuadra, no sale.</h2>
+        <ul class="ruled" style="margin-top:36px">
+          <li><h3>Los archivos no verificados quedan bloqueados.</h3><p>La exportación permanece bloqueada hasta que el estado se verifica.</p></li>
+          <li><h3>Las excepciones son deliberadas.</h3><p>Solo un administrador de la firma puede autorizar una excepción — y cada una queda registrada.</p></li>
+          <li><h3>Sin correcciones silenciosas.</h3><p>Los importes nunca se ajustan para forzar un saldo. Una fila sin fecha, importe o dirección detiene la exportación en lugar de desaparecer.</p></li>
+          <li><h3>¿Dudas? Lo dice.</h3><p>Las filas de baja confianza se marcan y resaltan, junto al PDF original.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section light" id="pricing" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Paga por página. Conoce el costo primero.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Solo</h3>
+        <p class="price num">$19<span>/mes</span></p>
+        <p>150 páginas al mes · $0.80 por página extra.<br>Para dueños que llevan sus propios libros.</p>
+      </div>
+      <div class="plan">
+        <h3>Firm</h3>
+        <p class="price num">$49<span>/mes</span></p>
+        <p>500 páginas al mes · $0.70 por página extra.<br>Espacios multi-cliente, políticas de retención, controles de administrador.</p>
+        <span class="deal">50% DE DESCUENTO EN EL LANZAMIENTO</span>
+      </div>
+      <div class="plan">
+        <h3>Practice</h3>
+        <p class="price num">$129<span>/mes</span></p>
+        <p>1,500 páginas al mes · $0.50 por página extra.<br>Para firmas que procesan estados a volumen.</p>
+        <span class="deal">50% DE DESCUENTO EN EL LANZAMIENTO</span>
+      </div>
+    </div>
+    <p class="fineprint" style="margin-top:32px;color:var(--slate-500)">Cada plan: conteo de páginas y costo previstos antes de procesar · páginas en blanco nunca se cobran · páginas fallidas reembolsadas · primeros 3 estados gratis.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section light" id="faq" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Preguntas, respondidas</h2>
+    <div class="faq-list">
+      <details class="faq"><summary>¿Qué exporta VerifyKeep?</summary><p>Archivos CSV en tres formatos: QuickBooks Online, Xero y un CSV genérico para cualquier hoja de cálculo. Importas el archivo a tu software de contabilidad; VerifyKeep no se conecta ni sincroniza directamente con QuickBooks o Xero.</p></details>
+      <details class="faq"><summary>¿Qué pasa cuando un estado no cuadra?</summary><p>La exportación se bloquea y el informe de validación muestra exactamente qué verificación falló y por cuánto. Puedes revisar las filas marcadas junto al PDF original. Solo un administrador de la firma puede autorizar una excepción, y cada excepción se escribe en el registro de auditoría.</p></details>
+      <details class="faq"><summary>¿Puede VerifyKeep cambiar mis números para que un estado cuadre?</summary><p>No. Los importes nunca se editan para forzar un saldo, y los importes no son editables en la app. Puedes editar descripciones, lo que vuelve a correr la validación. Las filas sin fecha, importe o dirección detienen la exportación en lugar de descartarse.</p></details>
+      <details class="faq"><summary>¿Cuánto tiempo guardan mis estados?</summary><p>Tú eliges por cliente: eliminar 24 horas después de exportar, conservar 30 días (predeterminado) o conservar 90 días. Los administradores de la firma también pueden eliminar un estado cuando no esté en proceso.</p></details>
+      <details class="faq"><summary>¿Hay un plan gratuito?</summary><p>Sí. Tus primeros 3 estados son gratis, sin tarjeta. Los planes de pago empiezan en $19/mes — y Firm y Practice tienen 50% de descuento para los primeros 100 suscriptores en el lanzamiento.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ CLOSING ============ -->
+<footer class="closing" id="waitlist">
+  <div class="wrap">
+    <div class="close-inner">
+      <h2>Verifica los números.<br>Conserva la prueba.</h2>
+      <p class="lead">Únete a la lista de lanzamiento — tus primeros tres estados gratis cuando abramos.</p>
+      <div class="waitlist">
+        <form id="wl" action="https://verifykeep-waitlist.campuzano713.workers.dev/" method="post">
+          <input type="email" name="email" placeholder="tu@firma.com" required aria-label="Correo electrónico">
+          <button class="btn btn-primary" type="submit">Únete a la lista</button>
+        </form>
+        <p id="wl-msg" class="fineprint" style="margin-top:12px" role="status"></p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <span>© 2026 VerifyKeep · Estados de cuenta dentro. Libros cuadrados fuera.</span>
+      <nav>
+        <a href="/bank-statement-converter/">Conversor</a>
+        <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+        <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('wl').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('wl-msg');
+    var email = this.email.value.trim();
+    this.querySelector('button').disabled = true;
+    fetch(this.action, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok }; }); })
+      .then(function (res) {
+        msg.textContent = res.ok ? 'Ya estás en la lista — te escribiremos al lanzamiento.' : 'Ese correo no parece válido — ¿otro intento?';
+        msg.style.color = res.ok ? '#2dd49b' : '#f87171';
+      }).catch(function () {
+        msg.textContent = 'No pudimos llegar a la lista — escribe a hello@verifykeep.com.';
+        msg.style.color = '#f87171';
+      }).finally(function () { document.querySelector('#wl button').disabled = false; });
+  });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"d96d124d6c1242e0960479c33da3e8d9"}'></script>
+</body>
+</html>

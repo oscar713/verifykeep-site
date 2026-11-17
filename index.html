@@ -7,6 +7,10 @@
 <meta name="description" content="VerifyKeep turns bank statement PDFs into import-ready CSVs for QuickBooks Online and Xero, then checks every statement against the bank's own balances. If it doesn't balance, it doesn't leave.">
 <link rel="icon" type="image/svg+xml" href="brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/">
 <meta name="google-site-verification" content="YEHt8uGkWAJbz0lwX3FKwoiRFzik9wPTO_pddp6rg0Q">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VerifyKeep">
@@ -90,6 +94,9 @@
     color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px;
   }
   header nav a.nav-cta:hover { background: var(--mint); transform: translateY(-1px); }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
 
   /* ---------- shared ---------- */
   section { position: relative; }
@@ -302,6 +309,7 @@
       <a href="#pricing">Pricing</a>
       <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
       <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+      <span class="langs"><a href="/" aria-current="true">EN</a><a href="/es/">ES</a><a href="/ar/">AR</a></span>
     </nav>
   </div>
 </header>

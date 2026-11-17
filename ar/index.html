@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VerifyKeep — كشوف حساب بنكية إلى ملفات CSV موثّقة وجاهزة للاستيراد</title>
+<meta name="description" content="تحوّل VerifyKeep كشوف الحساب البنكية بصيغة PDF إلى ملفات CSV جاهزة للاستيراد إلى QuickBooks Online وXero، ثم تتحقق من كل كشف مقابل الأرصدة المطبوعة من البنك نفسه. إن لم يتطابق، فلن يخرج.">
+<link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/ar/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/">
+<meta name="google-site-verification" content="YEHt8uGkWAJbz0lwX3FKwoiRFzik9wPTO_pddp6rg0Q">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="VerifyKeep — كشوف حساب بنكية إلى ملفات CSV موثّقة وجاهزة للاستيراد">
+<meta property="og:description" content="تحويل كشوف الحساب البنكية PDF إلى CSV جاهز لـ QuickBooks وXero. كل كشف مُتحقق منه مقابل أرصدة البنك نفسه — إن لم يتطابق، فلن يخرج.">
+<meta property="og:url" content="https://verifykeep.com/ar/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VerifyKeep — كشوف حساب بنكية إلى ملفات CSV موثّقة وجاهزة للاستيراد">
+<meta name="twitter:description" content="تحويل كشوف الحساب البنكية PDF إلى CSV جاهز لـ QuickBooks وXero. كل كشف مُتحقق منه مقابل أرصدة البنك نفسه.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Noto+Sans+Arabic:wght@400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VerifyKeep",
+  "url": "https://verifykeep.com/ar/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ar",
+  "description": "تحوّل VerifyKeep كشوف الحساب البنكية بصيغة PDF إلى ملفات CSV جاهزة للاستيراد إلى QuickBooks Online وXero، ثم تتحقق من كل كشف مقابل الأرصدة المطبوعة من البنك نفسه.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", "Noto Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--mint); color: var(--ink); }
+  body {
+    font-family: var(--font);
+    font-optical-sizing: auto;
+    color: var(--ink-2);
+    line-height: 1.65;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+  img.resp { width: 100%; height: auto; display: block; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: 0; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+    transition: color .18s ease, background .18s ease;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta {
+    color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-inline-start: 8px;
+  }
+  header nav a.nav-cta:hover { background: var(--mint); transform: translateY(-1px); }
+  .langs { display: flex; gap: 2px; margin-inline-start: 10px; padding-inline-start: 12px; border-inline-start: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  /* ---------- shared ---------- */
+  section { position: relative; }
+  .section { min-height: 100svh; display: flex; flex-direction: column; }
+  .section .wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; padding-top: 96px; padding-bottom: 72px; }
+  .dark { background: var(--ink); color: #fff; }
+  .light { background: var(--paper); color: var(--ink-2); }
+  h1 {
+    font-size: clamp(44px, 5.6vw, 68px); line-height: 1.15; font-weight: 750;
+    letter-spacing: 0; color: #fff;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(30px, 3.6vw, 44px); font-weight: 730; letter-spacing: 0;
+    line-height: 1.2; text-wrap: balance;
+  }
+  .light h2 { color: var(--ink-2); }
+  .lead { font-size: 18px; max-width: 620px; margin-top: 22px; color: var(--slate-300); }
+  .light .lead { color: var(--slate-600); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 8px; padding: 13px 26px; font-weight: 700; font-size: 15px;
+    text-decoration: none; border: 0; cursor: pointer;
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary { background: var(--mint); color: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 8px 24px rgba(18,180,126,.28); }
+  .btn-primary:hover { background: var(--mint-bright); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(18,180,126,.36); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { border: 1px solid var(--rule); color: #fff; background: transparent; }
+  .btn-ghost:hover { background: rgba(255,255,255,.05); transform: translateY(-2px); }
+  .fineprint { font-size: 13.5px; color: var(--slate-400); }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: var(--nav); }
+  .hero .wrap { padding-top: 64px; padding-bottom: 0; justify-content: flex-start; }
+  .hero-grid { display: grid; gap: 48px; }
+  @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr .9fr; } }
+  .hero .lead { max-width: 540px; }
+  .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+  /* The check rail — ruled ledger column */
+  .rail { border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; align-self: start; }
+  .rail-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 18px; border-bottom: 1px solid var(--rule);
+    font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--slate-400);
+  }
+  .rail-head .live { color: var(--mint-bright); display: flex; align-items: center; gap: 6px; }
+  .rail-head .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint-bright); box-shadow: 0 0 8px var(--mint-bright); }
+  .rail ul { list-style: none; }
+  .rail li { display: flex; gap: 16px; align-items: baseline; padding: 15px 18px; border-bottom: 1px solid var(--rule); }
+  .rail li:last-child { border-bottom: 0; }
+  .rail .key { flex: 0 0 24px; font-size: 13px; font-weight: 800; color: var(--mint-bright); font-variant-numeric: tabular-nums; }
+  .rail .name { font-weight: 650; font-size: 15px; color: #fff; }
+  .rail .what { font-size: 13.5px; color: var(--slate-400); margin-top: 2px; }
+  .rail .tick { margin-inline-start: auto; color: var(--mint-bright); font-weight: 800; }
+
+  /* Hero ledger table — bleeds off the bottom edge */
+  .ledger-frame { margin: 56px -40px 0; position: relative; }
+  .ledger-frame::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px;
+    background: linear-gradient(to bottom, rgba(7,18,36,0), var(--ink) 88%);
+    pointer-events: none;
+  }
+  .ledger {
+    border-top: 1px solid var(--rule); background: rgba(255,255,255,.025);
+    font-variant-numeric: tabular-nums;
+  }
+  .ledger .lrow {
+    display: grid; grid-template-columns: 150px 1fr 130px 44px; gap: 20px;
+    padding: 13px 40px; border-bottom: 1px solid var(--rule);
+    font-size: 14.5px; align-items: baseline;
+  }
+  .ledger .ld { color: var(--slate-400); }
+  .ledger .ln { color: #fff; font-weight: 600; text-align: left; }
+  .ledger .lc { color: var(--mint-bright); font-weight: 800; text-align: center; }
+  .ledger .lhead { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; color: var(--slate-400); }
+
+  /* ---------- ruled list (no cards) ---------- */
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--line); }
+  .dark .ruled { border-top-color: var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--line); padding: 30px 0 26px; display: grid; gap: 8px; }
+  .dark .ruled li { border-bottom-color: var(--rule); }
+  @media (min-width: 800px) { .ruled li { grid-template-columns: 340px 1fr; gap: 48px; align-items: baseline; } }
+  .proof .ruled li { grid-template-columns: 1fr; gap: 6px; padding: 22px 0 20px; }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: 0; }
+  .dark .ruled h3 { color: #fff; }
+  .ruled p { color: var(--slate-600); font-size: 15.5px; max-width: 640px; }
+  .dark .ruled p { color: var(--slate-300); }
+
+  /* ---------- steps row ---------- */
+  .steps { margin-top: 52px; border-top: 1px solid var(--rule); }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .step .no {
+    font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 800; color: var(--mint-bright);
+    border: 1px solid var(--rule); border-radius: 6px; height: 34px; width: 46px;
+    display: flex; align-items: center; justify-content: center; background: rgba(18,180,126,.08);
+  }
+  .step h3 { font-size: 17.5px; color: #fff; font-weight: 700; }
+  .step p { font-size: 15px; color: var(--slate-300); margin-top: 5px; max-width: 780px; }
+
+  /* ---------- check figure ---------- */
+  .proof { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 900px) { .proof { grid-template-columns: 1fr 1fr; } }
+  .shot {
+    border-radius: 14px; overflow: hidden; background: #fff;
+    box-shadow: 0 32px 80px rgba(0,0,0,.45), 0 4px 16px rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .light .shot { border-color: var(--line); box-shadow: 0 24px 60px rgba(15,23,42,.12); }
+  .checks-a-e { list-style: none; margin-top: 36px; }
+  .checks-a-e li { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .checks-a-e .checkid {
+    flex: 0 0 32px; height: 32px; border: 1px solid var(--rule); border-radius: 6px;
+    background: rgba(18,180,126,.1); color: var(--mint-bright);
+    font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
+  .checks-a-e h3 { font-size: 16px; color: #fff; font-weight: 700; }
+  .checks-a-e p { font-size: 14.5px; color: var(--slate-300); margin-top: 4px; }
+
+  /* ---------- pricing ---------- */
+  .plans { margin-top: 52px; border-top: 1px solid var(--line); display: grid; }
+  @media (min-width: 800px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+  .plan { padding: 34px 0 30px 32px; border-bottom: 1px solid var(--line); }
+  @media (min-width: 800px) { .plan { border-bottom: 0; border-inline-end: 1px solid var(--line); padding-inline-end: 32px; padding-inline-start: 0; } .plan:last-child { border-inline-end: 0; } .plan + .plan { padding-inline-start: 32px; } }
+  .plan h3 { font-size: 15px; font-weight: 700; letter-spacing: .03em; color: var(--slate-500); }
+  .plan .price { font-size: 40px; font-weight: 750; letter-spacing: 0; margin-top: 12px; font-variant-numeric: tabular-nums; }
+  .plan .price span { font-size: 15px; font-weight: 500; color: var(--slate-400); letter-spacing: 0; }
+  .plan p { font-size: 15px; color: var(--slate-600); margin-top: 10px; }
+  .plan .deal { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 800; letter-spacing: .03em; color: var(--mint-deep); background: rgba(18,180,126,.1); border: 1px solid rgba(18,180,126,.3); padding: 5px 10px; border-radius: 6px; }
+
+  /* ---------- faq ---------- */
+  .faq-list { margin-top: 44px; border-top: 1px solid var(--line); max-width: 860px; }
+  details.faq { border-bottom: 1px solid var(--line); }
+  details.faq summary {
+    cursor: pointer; font-weight: 650; font-size: 17px; list-style: none;
+    padding: 22px 0 22px 44px; position: relative; color: var(--ink-2);
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "+"; position: absolute; left: 8px; top: 20px;
+    color: var(--mint-deep); font-size: 24px; font-weight: 400; transition: transform .2s ease;
+  }
+  details.faq[open] summary::after { content: "−"; }
+  details.faq p { padding: 0 0 24px; color: var(--slate-600); font-size: 15.5px; max-width: 720px; }
+
+  /* ---------- closing ---------- */
+  footer.closing { background: var(--ink); min-height: 100svh; display: flex; flex-direction: column; }
+  footer.closing .wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; padding-top: 120px; padding-bottom: 48px; }
+  .close-inner { max-width: 720px; }
+  .waitlist form { display: flex; gap: 10px; max-width: 480px; margin-top: 36px; flex-wrap: wrap; }
+  .waitlist input[type=email] {
+    flex: 1; min-width: 240px; padding: 14px 16px; border-radius: 8px;
+    border: 1px solid var(--rule); background: var(--ink-2); color: #fff; font-size: 15.5px; font-family: var(--font);
+    transition: border-color .18s ease;
+  }
+  .waitlist input[type=email]:focus { outline: none; border-color: var(--mint-bright); }
+  .waitlist input::placeholder { color: var(--slate-400); }
+  .foot-links { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13.5px; color: var(--slate-400); }
+  .foot-links a { color: var(--slate-300); text-decoration: none; }
+  .foot-links a:hover { color: #fff; }
+  .foot-links nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  /* ---------- entrance & micro-motion ---------- */
+  @keyframes enter-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes tick-in { from { opacity: 0; transform: translateX(6px); } to { opacity: 1; transform: none; } }
+  [data-enter] { animation: enter-up .7s cubic-bezier(.22,.68,.32,1) backwards; }
+  [data-enter="2"] { animation-delay: .12s; }
+  [data-enter="3"] { animation-delay: .22s; }
+  [data-enter="4"] { animation-delay: .34s; }
+  .rail li { opacity: 0; animation: tick-in .5s cubic-bezier(.22,.68,.32,1) forwards; }
+  .rail li:nth-child(1) { animation-delay: .55s; }
+  .rail li:nth-child(2) { animation-delay: .68s; }
+  .rail li:nth-child(3) { animation-delay: .81s; }
+  .rail li:nth-child(4) { animation-delay: .94s; }
+  .rail li:nth-child(5) { animation-delay: 1.07s; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .rail li { opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .wrap { padding-left: 24px; padding-right: 24px; }
+    .section .wrap { padding-top: 84px; padding-bottom: 56px; }
+    header nav a:not(.nav-cta) { padding: 8px 8px; font-size: 13px; }
+    .ledger-frame { margin: 44px -24px 0; }
+    .ledger .lrow { padding: 12px 24px; grid-template-columns: 110px 1fr 90px 30px; gap: 12px; font-size: 13px; }
+    .rail { display: none; }
+    h1 { font-size: clamp(40px, 10vw, 52px); }
+  }
+  @media (max-width: 520px) {
+    header nav a:not(.nav-cta):not(:first-child) { display: none; }
+    .hero .wrap { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/ar/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/bank-statement-converter/">المحوّل</a>
+      <a href="#how">آلية العمل</a>
+      <a href="#checks">التحققات الخمسة</a>
+      <a href="#pricing">الأسعار</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
+      <a class="nav-cta" href="#waitlist">انضم لقائمة الانتظار</a>
+      <span class="langs"><a href="/">EN</a><a href="/es/">ES</a><a href="/ar/" aria-current="true">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="section dark hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 data-enter>موثّق قبل<br>ترحيله للقيود.</h1>
+        <p class="lead" data-enter="2">تحوّل VerifyKeep كشوف الحساب البنكية بصيغة PDF إلى ملفات CSV جاهزة للاستيراد إلى QuickBooks Online وXero — ثم تُطابق كل كشف مع الأرقام المطبوعة من البنك نفسه. إن لم يتطابق، فلن يخرج.</p>
+        <div class="cta-row" data-enter="3">
+          <a class="btn btn-primary" href="#waitlist">انضم لقائمة الانتظار ←</a>
+          <a class="btn btn-ghost" href="#how">شاهد آلية العمل</a>
+        </div>
+        <p class="fineprint" data-enter="4" style="margin-top:20px">الإطلاق قريبًا · أول 3 كشوف مجانية · بلا بطاقة ائتمانية</p>
+      </div>
+      <aside class="rail" data-enter="3" aria-label="التحققات الخمسة">
+        <div class="rail-head"><span>كشف VK-2026-0417</span><span class="live">جارٍ التحقق</span></div>
+        <ul>
+          <li><span class="key">A</span><div><span class="name">إثبات الرصيد</span><div class="what">الافتتاحي + الإيداعات − السحوبات = الختامي، بالسنت</div></div><span class="tick">✓</span></li>
+          <li><span class="key">B</span><div><span class="name">عدد العمليات</span><div class="what">الصفوف المستخرجة تطابق العدد المطبوع</div></div><span class="tick">✓</span></li>
+          <li><span class="key">C</span><div><span class="name">تطابق الإجماليات</span><div class="what">الإيداعات والسحوبات تتطابق مع الكشف</div></div><span class="tick">✓</span></li>
+          <li><span class="key">D</span><div><span class="name">الاكتمال</span><div class="what">كل صفحة مقروءة، وكل تاريخ داخل الفترة</div></div><span class="tick">✓</span></li>
+          <li><span class="key">E</span><div><span class="name">الشذوذات</span><div class="what">الصفوف منخفضة الثقة مُعلَّمة للمراجعة</div></div><span class="tick">✓</span></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="ledger-frame" data-enter="4">
+      <div class="ledger" aria-hidden="true">
+        <div class="lrow lhead"><span>التاريخ</span><span>الوصف</span><span style="text-align:left">المبلغ</span><span></span></div>
+        <div class="lrow"><span class="ld num">3 أبريل 2026</span><span>الرصيد الافتتاحي</span><span class="ln num">$3,248.17</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">7 أبريل 2026</span><span>دفعة عميل — Northwind Dental</span><span class="ln num">+$8,750.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">10 أبريل 2026</span><span>مستلزمات مكتبية — Staples</span><span class="ln num">−$87.42</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">14 أبريل 2026</span><span>الرواتب — Gusto</span><span class="ln num">−$4,125.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">17 أبريل 2026</span><span>فاتورة #1042 — Harbor &amp; Co.</span><span class="ln num">+$1,860.00</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">21 أبريل 2026</span><span>المرافق — كهرباء المدينة</span><span class="ln num">−$143.67</span><span class="lc">✓</span></div>
+        <div class="lrow"><span class="ld num">24 أبريل 2026</span><span>دفعة عميل — Beacon Realty</span><span class="ln num">+$4,610.25</span><span class="lc">✓</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section light">
+  <div class="wrap">
+    <h2>التحويل ليس مرادفًا للصحة.</h2>
+    <ul class="ruled">
+      <li>
+        <h3>قد يبدو ملف CSV سليمًا وهو خاطئ.</h3>
+        <p>صفٌّ مفقود أو مبلغ مقروء خطأ لن يُعلن عن نفسه. يظهر بعد أسابيع في صورة تسوية لا تُقفل — ولا سبيل لتتبّع السطر الذي كسرها.</p>
+      </li>
+      <li>
+        <h3>إعادة فحص الأعمدة يدويًا لا يتوسع.</h3>
+        <p>التحقق من كل كشف مقابل إجمالياته المطبوعة يستهلك الساعات التي كنت تحاول توفيرها — كل كشف، كل عميل، كل شهر.</p>
+      </li>
+      <li>
+        <h3>الإصلاحات الخفية مسؤولية قانونية.</h3>
+        <p>عندما تعدّل أداةٌ الأرقام بهدوء حتى يُستورَد الملف، يختفي الدليل المؤدي إلى المستند الأصلي. لا تعدّل VerifyKeep المبالغ أبدًا — الكشف الذي لا يستطيع إثبات نفسه يتوقف عند البوابة.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section dark" id="how">
+  <div class="wrap">
+    <h2>من PDF إلى ملفٍ تستطيع الدفاع عنه.</h2>
+    <div class="steps">
+      <div class="step"><span class="no num">01</span><div><h3>ارفع ملف PDF</h3><p>كشوف بنكية أو بطاقات ائتمان أو وساطة — بما يشمل المسوّدات والصور — حتى 100 ميغابايت و500 صفحة للملف.</p></div></div>
+      <div class="step"><span class="no num">02</span><div><h3>اعرف التكلفة أولًا</h3><p>يظهر عدد الصفحات والتكلفة قبل معالجة الصفحات المدفوعة. الصفحات الفارغة لا تُحتسب أبدًا؛ والصفحات الفاشلة تُعاد.</p></div></div>
+      <div class="step"><span class="no num">03</span><div><h3>خمسة تحققات تعمل</h3><p>يُطابَق كل كشف مع أرقام البنك نفسه، مع إظهار الحساب — وليس مجرد علامة نجاح.</p></div></div>
+      <div class="step"><span class="no num">04</span><div><h3>صدّر مع الدليل</h3><p>نزّل ملف CSV لـ QuickBooks Online أو Xero أو عامًا بعد تحقق الكشف. يتنقل تقرير التحقق معه.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIVE CHECKS ============ -->
+<section class="section dark" id="checks" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="proof">
+      <div>
+        <h2>على كل كشف أن يُثبت نفسه.</h2>
+        <p class="lead">كل تحققٍ يُظهر الأرقام الحقيقية والحساب خلفها — لترى لماذا نجح الكشف، لا فقط أنه نجح.</p>
+        <ul class="checks-a-e">
+          <li><span class="checkid">A</span><div><h3>إثبات الرصيد</h3><p>الرصيد الافتتاحي + الإيداعات − السحوبات يجب أن يساوي الرصيد الختامي المطبوع. بالسنت.</p></div></li>
+          <li><span class="checkid">B</span><div><h3>عدد العمليات</h3><p>عدد الصفوف المستخرجة يجب أن يطابق العدد الذي طبعه البنك.</p></div></li>
+          <li><span class="checkid">C</span><div><h3>إجمالي الإيداعات والسحوبات</h3><p>تُقارَن الإجماليات المستخرجة مع إجماليات الكشف.</p></div></li>
+          <li><span class="checkid">D</span><div><h3>الاكتمال</h3><p>تُقرأ كل صفحة ويقع كل تاريخ داخل فترة الكشف.</p></div></li>
+          <li><span class="checkid">E</span><div><h3>الشذوذات</h3><p>تُعلَّم الصفوف غير المعتادة أو منخفضة الثقة وتُبرَز للمراجعة.</p></div></li>
+        </ul>
+      </div>
+      <figure class="shot"><img class="resp" src="../report-verified.webp" alt="تقرير تحقق VerifyKeep يعرض كشفًا موثّقًا مع حساب تطابق الأرصدة" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPORT GATE ============ -->
+<section class="section light">
+  <div class="wrap">
+    <div class="proof">
+      <figure class="shot"><img class="resp" src="../transactions-flagged.webp" alt="صفوف عمليات مُعلَّمة في شاشة مراجعة VerifyKeep" loading="lazy"></figure>
+      <div>
+        <h2>إن لم يتطابق، فلن يخرج.</h2>
+        <ul class="ruled" style="margin-top:36px">
+          <li><h3>الملفات غير الموثّقة مقفلة.</h3><p>يبقى التصدير محظورًا حتى يتحقق الكشف.</p></li>
+          <li><h3>الاستثناءات متعمدة.</h3><p>فقط مدير الشركة يستطيع تجاوز ذلك — وكل تجاوزٍ مُسجَّل.</p></li>
+          <li><h3>لا إصلاحات خفية.</h3><p>لا تُعدَّل المبالغ أبدًا لإجبار التطابق. صفٌّ بلا تاريخ أو مبلغ أو اتجاه يوقف التصدير بدل أن يختفي.</p></li>
+          <li><h3>غير متأكد؟ يقول ذلك.</h3><p>الصفوف منخفضة الثقة مُعلَّمة ومُبرَزة، بجوار ملف PDF الأصلي.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section light" id="pricing" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>ادفع بالصفحة. اعرف التكلفة أولًا.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Solo</h3>
+        <p class="price num">$19<span>/شهر</span></p>
+        <p>150 صفحة شهريًا · $0.80 للصفحة الإضافية.<br>لأصحاب الأعمال الذين يديرون دفاترهم بأنفسهم.</p>
+      </div>
+      <div class="plan">
+        <h3>Firm</h3>
+        <p class="price num">$49<span>/شهر</span></p>
+        <p>500 صفحة شهريًا · $0.70 للصفحة الإضافية.<br>مساحات عمل متعددة العملاء، سياسات احتفاظ، ضوابط إدارية.</p>
+        <span class="deal">خصم 50% عند الإطلاق</span>
+      </div>
+      <div class="plan">
+        <h3>Practice</h3>
+        <p class="price num">$129<span>/شهر</span></p>
+        <p>1,500 صفحة شهريًا · $0.50 للصفحة الإضافية.<br>للشركات التي تعالج كشوفًا بكميات كبيرة.</p>
+        <span class="deal">خصم 50% عند الإطلاق</span>
+      </div>
+    </div>
+    <p class="fineprint" style="margin-top:32px;color:var(--slate-500)">في كل خطة: يُعرف عدد الصفحات والتكلفة قبل المعالجة · الصفحات الفارغة لا تُحتسب أبدًا · الصفحات الفاشلة تُعاد · أول 3 كشوف مجانية.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section light" id="faq" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>أسئلة مُجابة</h2>
+    <div class="faq-list">
+      <details class="faq"><summary>ماذا تصدّر VerifyKeep؟</summary><p>ملفات CSV بثلاثة تنسيقات: QuickBooks Online وXero وCSV عام لأي جدول بيانات. تستورد الملف إلى برنامج محاسبتك؛ لا تتصل VerifyKeep بـ QuickBooks أو Xero ولا تُزامن معهما مباشرة.</p></details>
+      <details class="faq"><summary>ماذا يحدث حين لا يتطابق كشفٌ ما؟</summary><p>يُحظَر التصدير ويعرض تقرير التحقق بالضبط أيَّ فحصٍ أخفق وبأي مقدار. يمكنك مراجعة الصفوف المعلَّمة بجوار ملف PDF الأصلي. فقط مدير الشركة يستطيع منح استثناء، وكل استثناء يُكتب في سجل التدقيق.</p></details>
+      <details class="faq"><summary>هل تستطيع VerifyKeep تغيير أرقامي ليتطابق الكشف؟</summary><p>لا. لا تُعدَّل المبالغ أبدًا لإجبار التطابق، والمبالغ غير قابلة للتعديل في التطبيق. يمكنك تعديل الأوصاف، فيعيد ذلك تشغيل التحقق. الصفوف التي تفتقد تاريخًا أو مبلغًا أو اتجاهًا توقف التصدير بدل حذفها.</p></details>
+      <details class="faq"><summary>كم تحتفظون بكشوفي؟</summary><p>أنت تختار لكل عميل: حذف بعد 24 ساعة من التصدير، أو الاحتفاظ 30 يومًا (الافتراضي)، أو الاحتفاظ 90 يومًا. ويستطيع مدراء الشركة أيضًا حذف كشفٍ ما دام لا يُعالَج.</p></details>
+      <details class="faq"><summary>هل توجد خطة مجانية؟</summary><p>نعم. أول 3 كشوف لك مجانية وبلا بطاقة. تبدأ الخطط المدفوعة من $19/شهر — وFirm وPractice بخصم 50% لأول 100 مشترك عند الإطلاق.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ CLOSING ============ -->
+<footer class="closing" id="waitlist">
+  <div class="wrap">
+    <div class="close-inner">
+      <h2>تحقّق من الأرقام.<br>احتفظ بالدليل.</h2>
+      <p class="lead">انضم لقائمة انتظار الإطلاق — أول ثلاثة كشوف مجانية عند الفتح.</p>
+      <div class="waitlist">
+        <form id="wl" action="https://verifykeep-waitlist.campuzano713.workers.dev/" method="post">
+          <input type="email" name="email" placeholder="you@firm.com" required aria-label="البريد الإلكتروني">
+          <button class="btn btn-primary" type="submit">انضم لقائمة الانتظار</button>
+        </form>
+        <p id="wl-msg" class="fineprint" style="margin-top:12px" role="status"></p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <span>© 2026 VerifyKeep · تدخل كشوف الحساب. تخرج دفاتر متوازنة.</span>
+      <nav>
+        <a href="/bank-statement-converter/">المحوّل</a>
+        <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
+        <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('wl').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('wl-msg');
+    var email = this.email.value.trim();
+    this.querySelector('button').disabled = true;
+    fetch(this.action, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok }; }); })
+      .then(function (res) {
+        msg.textContent = res.ok ? 'أنت في القائمة — سنراسلك عند الإطلاق.' : 'يبدو أن البريد غير صحيح — أعد المحاولة؟';
+        msg.style.color = res.ok ? '#2dd49b' : '#f87171';
+      }).catch(function () {
+        msg.textContent = 'تعذّر الوصول للقائمة — راسل hello@verifykeep.com.';
+        msg.style.color = '#f87171';
+      }).finally(function () { document.querySelector('#wl button').disabled = false; });
+  });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"d96d124d6c1242e0960479c33da3e8d9"}'></script>
+</body>
+</html>
