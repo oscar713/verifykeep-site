@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convierte un estado de cuenta en PDF a Xero | VerifyKeep</title>
+<meta name="description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un CSV validado y listo para importar a la conciliación bancaria de Xero, con el saldo verificado primero.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/convert-bank-statement-pdf-to-xero/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/convert-bank-statement-pdf-to-xero/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="Convierte un estado de cuenta en PDF a Xero">
+<meta property="og:description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un CSV validado y listo para importar a la conciliación bancaria de Xero, con el saldo verificado primero.">
+<meta property="og:url" content="https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convierte un estado de cuenta en PDF a Xero">
+<meta name="twitter:description" content="Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un CSV validado y listo para importar a la conciliación bancaria de Xero.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Convierte un estado de cuenta en PDF a Xero (verificado antes de importar)",
+  "description": "Convierte cualquier estado de cuenta bancario en PDF — incluidos los escaneos — en un CSV validado y listo para importar a la conciliación bancaria de Xero, con el saldo verificado primero.",
+  "url": "https://verifykeep.com/es/blog/convert-bank-statement-pdf-to-xero/",
+  "inLanguage": "es",
+  "datePublished": "2026-11-14",
+  "dateModified": "2026-11-14",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --rule: #1c2f4d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.12; font-weight: 650; letter-spacing: -0.02em; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-left: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/es/">Inicio</a>
+      <a href="/bank-statement-converter/">Conversor</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/blog/convert-bank-statement-pdf-to-xero/">EN</a><a href="/es/blog/convert-bank-statement-pdf-to-xero/" aria-current="true">ES</a><a href="/ar/blog/convert-bank-statement-pdf-to-xero/">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">Guías</p>
+    <h1>Convierte un estado de cuenta en PDF a Xero (verificado antes de importar)</h1>
+    <p class="meta">14 de noviembre de 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>La conciliación bancaria de Xero es limpia cuando una conexión en vivo funciona. Cuando no — un banco no compatible, una conexión caída o meses de historial que la conexión no alcanza — las transacciones quedan encerradas en un PDF y alguien tiene que sacarlas.</p>
+    <p>Así se hace sin volver a teclear, y este es el paso que decide si el resultado es confiable.</p>
+
+    <h2>Cuando la conexión no puede ayudar</h2>
+    <p>Las conexiones bancarias directas de Xero cubren la mayoría de los bancos grandes, pero tienen huecos: cooperativas de crédito pequeñas, cuentas que se cerraron antes de conectar la conexión e historial que solo llega hasta cierto punto. El trabajo de puesta al día — un cliente nuevo a mitad de año, una conciliación atrasada, una auditoría — casi siempre significa PDF.</p>
+
+    <h2>Lo que necesita Xero</h2>
+    <p>Xero importa estados de cuenta como CSV u OFX con tres elementos esenciales: una <strong>fecha</strong>, un <strong>beneficiario/descripción</strong> y un <strong>importe</strong> con signo (el dinero que entra en positivo, el que sale en negativo). Si te equivocas con la convención de signos, cada fila se importa al revés.</p>
+    <p>Las trampas de una conversión genérica de PDF a CSV:</p>
+    <ul>
+      <li><strong>Dirección en tarjetas de crédito</strong> — los "pagos" y las "compras" de un estado de tarjeta necesitan signos opuestos a los de una cuenta bancaria.</li>
+      <li><strong>Descripciones en dos líneas</strong> — un nombre de comercio en dos líneas se convierte en una segunda fila fantasma sin importe o, peor, en una transacción fantasma.</li>
+      <li><strong>Filas omitidas o duplicadas</strong> — desplazan el saldo acumulado en silencio.</li>
+      <li><strong>Escaneos</strong> — los estados fotografiados necesitan OCR primero, y el OCR adivina los decimales.</li>
+    </ul>
+
+    <h2>La verificación: ¿concilia con el saldo impreso?</h2>
+    <p>El propio estado de cuenta contiene la clave de respuestas: saldo inicial, total de depósitos, total de retiros, saldo final. Si las filas extraídas no reproducen exactamente esos números, la conversión falló en algún punto — una transacción faltante, un signo invertido, un decimal mal leído.</p>
+    <p>Antes de que algo llegue a Xero, verifica:</p>
+    <ol>
+      <li>El número de transacciones extraídas coincide con el conteo impreso en el estado</li>
+      <li>Saldo inicial + créditos − débitos = el saldo final impreso</li>
+      <li>Las filas marcadas o de baja confianza se revisan contra la página original</li>
+    </ol>
+
+    <h2>El flujo de trabajo de VerifyKeep</h2>
+    <ol>
+      <li>Sube el PDF — estados de cuenta de cheques, ahorros, tarjeta de crédito, correduría o combinados; las páginas escaneadas se envían a OCR automáticamente.</li>
+      <li>Ve el conteo de páginas y el costo antes de procesar (las páginas en blanco son gratis).</li>
+      <li>Cada transacción se extrae y se verifica contra las cifras impresas por el propio banco — conciliación de saldo, conteos, totales, integridad, anomalías.</li>
+      <li>Las filas marcadas se abren en una revisión lado a lado junto al PDF original.</li>
+      <li>Exporta un CSV listo para Xero (fecha, descripción, importe con signo) e impórtalo.</li>
+    </ol>
+    <p>Si el estado no cuadra, la exportación se bloquea — el informe muestra qué verificación falló y por cuánto. Las páginas fallidas se reembolsan automáticamente.</p>
+
+    <h2>Importar en Xero</h2>
+    <p>En el menú Administrar de la cuenta bancaria → Importar un estado de cuenta → elige el CSV → asigna las columnas a los campos Fecha / Beneficiario / Importe de Xero → revisa y concilia. Como las filas ya concilian con el estado, la pestaña de revisión se llena limpiamente en lugar de mostrar discrepancias.</p>
+
+    <div class="cta-box">
+      <h2>Pruébalo con tu próximo estado de cuenta</h2>
+      <p>Únete a la lista — primeros 3 estados gratis, sin tarjeta.</p>
+      <a class="btn btn-primary" href="/es/#waitlist">Únete a la lista →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · Estados de cuenta dentro. Libros cuadrados fuera.</div>
+    <div><a href="/bank-statement-converter/">Conversor</a> · <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a> · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

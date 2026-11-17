@@ -7,6 +7,10 @@
 <meta name="description" content="Looking for a DocuClipper alternative? VerifyKeep converts bank statements like other tools — then reconciles the output to the bank's printed totals before anything exports.">
 <link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/blog/docuclipper-alternative/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/docuclipper-alternative/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/docuclipper-alternative/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/docuclipper-alternative/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/docuclipper-alternative/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VerifyKeep">
 <meta property="og:title" content="DocuClipper Alternative: Conversion With the Balance Checked">
@@ -47,6 +51,7 @@
     --slate-300: #cbd5e1;
     --slate-400: #94a3b8;
     --slate-600: #475569;
+    --rule: #1c2f4d;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.7; }
@@ -61,6 +66,9 @@
   header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
   header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
   @media (max-width: 760px) {
     header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
     header nav { justify-content: space-between; }
@@ -88,6 +96,11 @@
   th { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--slate-300); font-weight: 700; }
   td { padding: 10px 12px; border-bottom: 1px solid var(--slate-200); vertical-align: top; }
   td:first-child { font-weight: 600; white-space: nowrap; }
+  @media (max-width: 520px) {
+    table { font-size: 13.5px; }
+    th, td { padding: 8px 6px; overflow-wrap: anywhere; }
+    td:first-child { white-space: normal; }
+  }
 
   footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
   footer a { color: var(--slate-300); text-decoration: none; }
@@ -104,6 +117,7 @@
       <a href="/">Home</a>
       <a href="/bank-statement-converter/">Bank statement converter</a>
       <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <span class="langs"><a href="/blog/docuclipper-alternative/" aria-current="true">EN</a><a href="/es/blog/docuclipper-alternative/">ES</a><a href="/ar/blog/docuclipper-alternative/">AR</a></span>
     </nav>
   </div>
 </header>

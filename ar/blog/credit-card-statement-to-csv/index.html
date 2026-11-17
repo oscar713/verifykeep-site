@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحويل كشف بطاقة ائتمان إلى CSV | VerifyKeep</title>
+<meta name="description" content="حوّل كشف بطاقة ائتمان بصيغة PDF — بما في ذلك المستندات الممسوحة ضوئيًا — إلى ملف CSV موثّق، مع التحقق من الرسوم والدفعات واتجاه الإشارات مقابل الإجماليات المطبوعة.">
+<link rel="icon" type="image/svg+xml" href="/brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/blog/credit-card-statement-to-csv/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VerifyKeep">
+<meta property="og:title" content="تحويل كشف بطاقة ائتمان إلى CSV">
+<meta property="og:description" content="حوّل كشف بطاقة ائتمان بصيغة PDF — بما في ذلك المستندات الممسوحة ضوئيًا — إلى ملف CSV موثّق، مع التحقق من الرسوم والدفعات واتجاه الإشارات مقابل الإجماليات المطبوعة.">
+<meta property="og:url" content="https://verifykeep.com/ar/blog/credit-card-statement-to-csv/">
+<meta property="og:image" content="https://verifykeep.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تحويل كشف بطاقة ائتمان إلى CSV">
+<meta name="twitter:description" content="حوّل كشف بطاقة ائتمان بصيغة PDF — بما في ذلك المستندات الممسوحة ضوئيًا — إلى ملف CSV موثّق مقابل الإجماليات المطبوعة.">
+<meta name="twitter:image" content="https://verifykeep.com/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Noto+Sans+Arabic:wght@400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "تحويل كشف بطاقة ائتمان إلى CSV دون أخطاء في الإشارات",
+  "description": "حوّل كشف بطاقة ائتمان بصيغة PDF — بما في ذلك المستندات الممسوحة ضوئيًا — إلى ملف CSV موثّق، مع التحقق من الرسوم والدفعات واتجاه الإشارات مقابل الإجماليات المطبوعة.",
+  "url": "https://verifykeep.com/ar/blog/credit-card-statement-to-csv/",
+  "inLanguage": "ar",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "author": { "@type": "Organization", "name": "VerifyKeep", "url": "https://verifykeep.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VerifyKeep",
+    "url": "https://verifykeep.com/",
+    "logo": { "@type": "ImageObject", "url": "https://verifykeep.com/logo.png" }
+  }
+}
+</script>
+<style>
+  :root {
+    --navy-950: #071224;
+    --navy-900: #0d1b33;
+    --brand-400: #2dd49b;
+    --brand-500: #12b47e;
+    --brand-700: #0d8a61;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --rule: #1c2f4d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Inter", "Noto Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--navy-900); line-height: 1.8; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--brand-700); }
+
+  header { padding: 20px 0; background: var(--navy-950); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; }
+  header .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  header svg.logo { height: 40px; width: 40px; }
+  header .wordmark { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 0; }
+  header nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  header nav a { color: #cbd5e1; text-decoration: none; padding: 6px 10px; font-size: 15px; white-space: nowrap; }
+  header nav a:hover { color: #fff; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+  @media (max-width: 760px) {
+    header .wrap { flex-direction: column; align-items: stretch; gap: 14px; }
+    header nav { justify-content: space-between; }
+  }
+
+  .post-head { background: var(--navy-950); color: #fff; padding: 64px 0; }
+  .post-head .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--brand-400); }
+  .post-head h1 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.3; font-weight: 650; letter-spacing: 0; margin-top: 18px; max-width: 720px; }
+  .post-head .meta { margin-top: 18px; color: var(--slate-400); font-size: 14px; }
+
+  article { padding: 56px 0 32px; }
+  article h2 { font-size: clamp(24px, 3vw, 28px); font-weight: 650; letter-spacing: 0; line-height: 1.4; margin: 44px 0 14px; }
+  article p, article li { font-size: 16.5px; margin-bottom: 14px; }
+  article ul, article ol { padding-inline-start: 24px; }
+  article ul li, article ol li { margin-bottom: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 14px 26px; font-weight: 700; text-decoration: none; font-size: 16px; border: 0; cursor: pointer; }
+  .btn-primary { background: var(--brand-500); color: var(--navy-950); }
+  .btn-primary:hover { background: var(--brand-400); }
+  .cta-box { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0 24px; }
+  .cta-box h2 { margin: 0; }
+  .cta-box p { color: var(--slate-600); margin-top: 10px; }
+  .cta-box .btn { margin-top: 20px; }
+
+  footer { background: var(--navy-950); color: var(--slate-400); padding: 40px 0; font-size: 14px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  article code { direction: ltr; unicode-bidi: isolate; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/ar/"><svg class="logo" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/ar/">الرئيسية</a>
+      <a href="/bank-statement-converter/">المحوّل</a>
+      <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
+      <span class="langs"><a href="/blog/credit-card-statement-to-csv/">EN</a><a href="/es/blog/credit-card-statement-to-csv/">ES</a><a href="/ar/blog/credit-card-statement-to-csv/" aria-current="true">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="post-head">
+  <div class="wrap">
+    <p class="eyebrow">أدلة</p>
+    <h1>تحويل كشف بطاقة ائتمان إلى CSV دون أخطاء في الإشارات</h1>
+    <p class="meta">15 نوفمبر 2026 · VerifyKeep</p>
+  </div>
+</section>
+
+<article>
+  <div class="wrap">
+    <p>كشوف بطاقات الائتمان هي الأكثر تعرضًا للتحويل الخاطئ — ليس لأن الاستخراج أصعب، بل لأن اصطلاح الإشارات معكوس. في الحساب البنكي، الأموال الواردة دائنة. أما في كشف البطاقة، فـ"الدفعة" تُخفِّض ما تدين به و"الشراء" يزيده. المحوّل المصمَّم للحسابات الجارية يُخطئ في الاتجاه في كل صفٍّ على الإطلاق، ويبدو الملف سليمًا تمامًا في Excel حتى يوم التسوية.</p>
+
+    <h2>أين تنهار المحوّلات العامة مع كشوف البطاقات</h2>
+    <ul>
+      <li><strong>الإشارات المقلوبة</strong> — تظهر المشتريات سالبة والدفعات موجبة؛ وتبقى الإجماليات متسقة، لكن بالعكس.</li>
+      <li><strong>الدفعات مختلطة بالرسوم</strong> — صفوف "دفعة — شكرًا لك" والمشتريات تشترك في التنسيق نفسه في ملفات PDF لدى معظم الجهات المُصدِرة.</li>
+      <li><strong>سطور الفوائد والرسوم</strong> — تُطبع في أقسام الملخص، فتُسقَط كليًا أو تُكرَّر كعمليات.</li>
+      <li><strong>ملخصات المكافآت</strong> — تُستخرج أرصدة النقاط كصفوف وهمية بالدولار.</li>
+      <li><strong>المستندات الممسوحة ضوئيًا</strong> — كشوف البطاقات المصوَّرة تحتاج إلى OCR، وOCR يُخطئ في قراءة الكسور العشرية في جداول العمليات الكثيفة.</li>
+    </ul>
+
+    <h2>الفحص: المطابقة مع الإجماليات المطبوعة</h2>
+    <p>يطبع كشف البطاقة مفتاح إجابته بنفسه: الرصيد السابق، والدفعات/المبالغ الدائنة، والمشتريات، والرسوم، والفوائد، والرصيد الجديد. إن لم تستطع الصفوف المستخرجة إعادة إنتاج <em>الرصيد الجديد</em> من البقية، فهناك خطأ — ويمكنك أن ترى بالضبط أي فئة لا تتطابق.</p>
+    <p>تحقّق قبل أن يذهب ملف CSV إلى أي مكان:</p>
+    <ol>
+      <li>عدد العمليات يطابق العدد المطبوع (الرسوم + الدفعات + العمولات).</li>
+      <li>الرصيد السابق − الدفعات + المشتريات + الرسوم + الفوائد = الرصيد الجديد المطبوع.</li>
+      <li>التحقق من الإشارات مقابل صفٍّ معروف — يجب أن يظهر الشراء الحقيقي موجبًا.</li>
+    </ol>
+
+    <h2>طريقة العمل في VerifyKeep</h2>
+    <ol>
+      <li>ارفع ملف PDF لكشف البطاقة — وتُوجَّه المستندات الممسوحة ضوئيًا إلى OCR تلقائيًا.</li>
+      <li>يُعرض عدد الصفحات والتكلفة قبل المعالجة؛ والصفحات الفارغة مجانية.</li>
+      <li>يطبّق الاستخراج اصطلاح الإشارات الصحيح لكشوف البطاقات، ثم يطابق كل رقم مع الإجماليات المطبوعة في الكشف — الرصيد، والأعداد، وفئات الإيداعات والسحوبات، والاكتمال، والشذوذات.</li>
+      <li>تُفتح الصفوف المعلَّمة جنبًا إلى جنب مقابل الصفحة الأصلية للمراجعة.</li>
+      <li>صدّر ملف CSV نظيفًا — التاريخ، والوصف، والمبلغ بإشارته — جاهزًا لـ Excel أو QuickBooks أو Xero.</li>
+    </ol>
+    <p>إن لم يتطابق الكشف، يُحظَر التصدير: ويعرض التقرير أي فئة أخفقت وبأي مقدار. وتُعاد قيمة الصفحات الفاشلة تلقائيًا.</p>
+
+    <h2>استيراد كشف بطاقة</h2>
+    <p>في QuickBooks أو Xero، يُستورد حساب البطاقة كما يُستورد الحساب البنكي — التاريخ، والمستفيد، والمبلغ بإشارته. ولأن الإشارات تم التحقق منها قبل التصدير، تُسجَّل الرسوم كمصروفات والدفعة كتحويل، وهذا ما تتوقعه التسوية.</p>
+
+    <div class="cta-box">
+      <h2>جرّبها على كشفك القادم</h2>
+      <p>انضم لقائمة الانتظار — أول 3 كشوف مجانية، بلا بطاقة ائتمانية.</p>
+      <a class="btn btn-primary" href="/ar/#waitlist">انضم لقائمة الانتظار ←</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 VerifyKeep · تدخل كشوف الحساب. تخرج دفاتر متوازنة.</div>
+    <div><a href="/bank-statement-converter/">المحوّل</a> · <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a> · <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
