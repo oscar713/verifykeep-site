@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seguridad y manejo de datos | VerifyKeep</title>
+<meta name="description" content="Cómo VerifyKeep protege los estados de cuenta de tus clientes: cifrado en reposo y en tránsito, aislamiento de tenants a nivel de base de datos, MFA para administradores, retención a tu elección y cargas blindadas contra PDFs hostiles.">
+<link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/security.html">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/security.html">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/security.html">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/security.html">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/es/security.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    color: var(--ink-2);
+    line-height: 1.55;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { max-width: 1160px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta { color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  main { padding: calc(var(--nav) + 64px) 0 96px; }
+  .dark { background: var(--ink); color: #fff; }
+  h1 {
+    font-size: clamp(38px, 5vw, 56px); line-height: 1.04; font-weight: 750;
+    letter-spacing: -0.026em; color: #fff; text-wrap: balance;
+  }
+  .lead { font-size: 18px; max-width: 640px; margin-top: 20px; color: var(--slate-300); }
+
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
+  @media (min-width: 800px) { .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; } }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
+
+  .note { margin-top: 40px; padding: 20px 24px; border: 1px solid var(--rule); border-radius: 10px;
+    background: rgba(18,180,126,.06); color: var(--slate-300); font-size: 14.5px; }
+  .note b { color: var(--mint-bright); }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0; font-size: 13.5px; color: var(--slate-400); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1160px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) { .wrap { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 520px) { header nav a:not(.nav-cta):not(:first-child) { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/es/bank-statement-converter/">Conversor</a>
+      <a href="/es/#how">Cómo funciona</a>
+      <a href="/es/#checks">Cinco verificaciones</a>
+      <a href="/es/#pricing">Precios</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a class="nav-cta" href="/es/#waitlist">Únete a la lista</a>
+      <span class="langs"><a href="/security.html">EN</a><a href="/es/security.html" aria-current="true">ES</a><a href="/ar/security.html">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main class="dark">
+  <div class="wrap">
+    <h1>Los estados de cuenta de tus clientes son los ahorros de otra persona. Los tratamos así.</h1>
+    <p class="lead">VerifyKeep existe para leer documentos financieros — los archivos más sensibles que maneja una firma. Esta página dice claramente qué guardamos, quién puede acceder y qué pasa cuando te vas.</p>
+
+    <ul class="ruled">
+      <li>
+        <h3>Cifrado en reposo y en tránsito</h3>
+        <p>Cada archivo de estado de cuenta se guarda en AWS S3 con cifrado del lado del servidor mediante AWS KMS (SSE-KMS). Todo el tráfico usa TLS. No existe ninguna ruta en la aplicación que escriba un estado de cuenta sin cifrar.</p>
+      </li>
+      <li>
+        <h3>Aislamiento de tenants a nivel de base de datos</h3>
+        <p>Los datos de cada espacio de trabajo se separan con seguridad a nivel de fila de PostgreSQL — es la propia base de datos la que rechaza lecturas entre espacios, no solo el código de la aplicación. Los estados de cuenta de una firma nunca pueden devolverse a la sesión de otra.</p>
+      </li>
+      <li>
+        <h3>MFA obligatorio para el acceso administrativo</h3>
+        <p>Los administradores del espacio deben activar autenticación TOTP multifactor antes de gestionar miembros, facturación o retención. El acceso de operador de plataforma requiere un rol separado además de MFA.</p>
+      </li>
+      <li>
+        <h3>Tú decides cuánto tiempo se conservan los estados</h3>
+        <p>La retención es una opción por cliente: eliminar tras la exportación, conservar 30 días o conservar 90 días. Las eliminaciones dejan una marca que conserva el rastro de auditoría — qué se procesó y cuándo — sin guardar el documento.</p>
+      </li>
+      <li>
+        <h3>Cargas blindadas contra archivos hostiles</h3>
+        <p>Los PDF que contienen JavaScript, archivos incrustados, acciones de lanzamiento o cifrado se rechazan en la inspección. Las cargas tienen límite de frecuencia por usuario y por espacio, un máximo de 100&nbsp;MB y 500 páginas, y la extracción de texto corre en un subproceso con límites de memoria y tiempo.</p>
+      </li>
+      <li>
+        <h3>Cómo funciona la extracción con IA</h3>
+        <p>Las páginas del estado se envían a una API de salida estructurada que devuelve las transacciones como JSON estricto. Según los términos de API del proveedor, las entradas no se usan para entrenar modelos. Ningún estado de cuenta se publica ni es leído por una persona como parte del procesamiento normal.</p>
+      </li>
+      <li>
+        <h3>Las filas marcadas nunca se ocultan</h3>
+        <p>Las filas que no superan la conciliación se muestran para revisión — nunca se descartan ni se exportan en silencio. Lo que exportas es lo que las verificaciones probaron, y la exportación lleva el veredicto.</p>
+      </li>
+      <li>
+        <h3>Reportar una vulnerabilidad</h3>
+        <p>Escribe a <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a> con "SECURITY" en el asunto. Leemos cada reporte y respondemos antes de publicar la corrección.</p>
+      </li>
+    </ul>
+
+    <div class="note">
+      <b>Contado, no afirmado:</b> la plataforma ejecuta hoy 545 pruebas automatizadas, 5 verificaciones deterministas de conciliación, 4 formatos de exportación y límites de carga por usuario y por espacio de trabajo. Las páginas de seguridad describen intención; las pruebas describen comportamiento.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VerifyKeep · Estados de cuenta entran. Libros cuadrados salen.</span>
+    <nav>
+      <a href="/es/bank-statement-converter/">Conversor</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

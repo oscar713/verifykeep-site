@@ -231,6 +231,18 @@
   .plan p { font-size: 15px; color: var(--slate-600); margin-top: 10px; }
   .plan .deal { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 800; letter-spacing: .03em; color: var(--mint-deep); background: rgba(18,180,126,.1); border: 1px solid rgba(18,180,126,.3); padding: 5px 10px; border-radius: 6px; }
 
+  /* ---------- counted stats ---------- */
+  .stats { margin-top: 44px; border-top: 1px solid var(--line); display: grid; }
+  .stat { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .stat .n { font-size: 40px; font-weight: 750; font-variant-numeric: tabular-nums; color: var(--ink-2); display: block; }
+  .stat .l { font-size: 14px; color: var(--slate-600); display: block; margin-top: 6px; }
+  @media (min-width: 800px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .stat { border-bottom: 0; border-left: 1px solid var(--line); padding-left: 28px; padding-right: 0; }
+    .stat:last-child { border-left: 0; }
+    .stat + .stat { padding-right: 28px; }
+  }
+
   /* ---------- faq ---------- */
   .faq-list { margin-top: 44px; border-top: 1px solid var(--line); max-width: 860px; }
   details.faq { border-bottom: 1px solid var(--line); }
@@ -308,6 +320,7 @@
       <a href="#how">آلية العمل</a>
       <a href="#checks">التحققات الخمسة</a>
       <a href="#pricing">الأسعار</a>
+      <a href="/ar/security.html">الأمان</a>
       <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
       <a class="nav-cta" href="#waitlist">انضم لقائمة الانتظار</a>
       <span class="langs"><a href="/">EN</a><a href="/es/">ES</a><a href="/ar/" aria-current="true">AR</a></span>
@@ -455,12 +468,27 @@
   </div>
 </section>
 
+<!-- ============ COUNTED ============ -->
+<section class="section light" style="border-top:1px solid var(--line); min-height:0">
+  <div class="wrap" style="padding-top:80px; padding-bottom:80px">
+    <h2>معدود لا مُدَّعى.</h2>
+    <p class="lead">صفحات الأمان تصف النية؛ ومجموعة الاختبارات تصف السلوك.</p>
+    <div class="stats">
+      <div class="stat"><span class="n">545</span><span class="l">اختبارًا آليًا ضد المنصة العاملة</span></div>
+      <div class="stat"><span class="n">5</span><span class="l">تحققات مطابقة حتمية لكل كشف</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">صيغ تصدير — QBO وXero وCSV عام و.ofx</span></div>
+      <div class="stat"><span class="n">0</span><span class="l">صفوف معلَّمة تُحذف أو تُصدَّر بصمت</span></div>
+    </div>
+    <p class="fineprint" style="margin-top:28px"><a href="/ar/security.html">كيف نحمي كشوف عملائك ←</a></p>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="section light" id="faq" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <h2>أسئلة مُجابة</h2>
     <div class="faq-list">
-      <details class="faq"><summary>ماذا تصدّر VerifyKeep؟</summary><p>ملفات CSV بثلاثة تنسيقات: QuickBooks Online وXero وCSV عام لأي جدول بيانات. تستورد الملف إلى برنامج محاسبتك؛ لا تتصل VerifyKeep بـ QuickBooks أو Xero ولا تُزامن معهما مباشرة.</p></details>
+      <details class="faq"><summary>ماذا تصدّر VerifyKeep؟</summary><p>أربع صيغ ملفات: CSV بتخطيطَي QuickBooks Online وXero، وCSV عام لأي جدول بيانات، وملف .ofx أصيل تقرأه أدوات محاسبتك مباشرة. تستورد الملف إلى برنامج محاسبتك؛ لا تتصل VerifyKeep بـ QuickBooks أو Xero ولا تُزامن معهما مباشرة.</p></details>
       <details class="faq"><summary>ماذا يحدث حين لا يتطابق كشفٌ ما؟</summary><p>يُحظَر التصدير ويعرض تقرير التحقق بالضبط أيَّ فحصٍ أخفق وبأي مقدار. يمكنك مراجعة الصفوف المعلَّمة بجوار ملف PDF الأصلي. فقط مدير الشركة يستطيع منح استثناء، وكل استثناء يُكتب في سجل التدقيق.</p></details>
       <details class="faq"><summary>هل تستطيع VerifyKeep تغيير أرقامي ليتطابق الكشف؟</summary><p>لا. لا تُعدَّل المبالغ أبدًا لإجبار التطابق، والمبالغ غير قابلة للتعديل في التطبيق. يمكنك تعديل الأوصاف، فيعيد ذلك تشغيل التحقق. الصفوف التي تفتقد تاريخًا أو مبلغًا أو اتجاهًا توقف التصدير بدل حذفها.</p></details>
       <details class="faq"><summary>كم تحتفظون بكشوفي؟</summary><p>أنت تختار لكل عميل: حذف بعد 24 ساعة من التصدير، أو الاحتفاظ 30 يومًا (الافتراضي)، أو الاحتفاظ 90 يومًا. ويستطيع مدراء الشركة أيضًا حذف كشفٍ ما دام لا يُعالَج.</p></details>
@@ -489,6 +517,7 @@
       <span>© 2026 VerifyKeep · تدخل كشوف الحساب. تخرج دفاتر متوازنة.</span>
       <nav>
         <a href="/ar/bank-statement-converter/">المحوّل</a>
+        <a href="/ar/security.html">الأمان</a>
         <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
         <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
       </nav>

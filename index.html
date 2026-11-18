@@ -230,6 +230,18 @@
   .plan p { font-size: 15px; color: var(--slate-600); margin-top: 10px; }
   .plan .deal { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 800; letter-spacing: .06em; color: var(--mint-deep); background: rgba(18,180,126,.1); border: 1px solid rgba(18,180,126,.3); padding: 5px 10px; border-radius: 6px; }
 
+  /* ---------- counted stats ---------- */
+  .stats { margin-top: 44px; border-top: 1px solid var(--line); display: grid; }
+  .stat { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .stat .n { font-size: 40px; font-weight: 750; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--ink-2); display: block; }
+  .stat .l { font-size: 14px; color: var(--slate-600); display: block; margin-top: 6px; }
+  @media (min-width: 800px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .stat { border-bottom: 0; border-right: 1px solid var(--line); padding-right: 28px; }
+    .stat:last-child { border-right: 0; }
+    .stat + .stat { padding-left: 28px; }
+  }
+
   /* ---------- faq ---------- */
   .faq-list { margin-top: 44px; border-top: 1px solid var(--line); max-width: 860px; }
   details.faq { border-bottom: 1px solid var(--line); }
@@ -307,6 +319,7 @@
       <a href="#how">How it works</a>
       <a href="#checks">Five checks</a>
       <a href="#pricing">Pricing</a>
+      <a href="/security.html">Security</a>
       <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
       <a class="nav-cta" href="#waitlist">Join the waitlist</a>
       <span class="langs"><a href="/" aria-current="true">EN</a><a href="/es/">ES</a><a href="/ar/">AR</a></span>
@@ -454,12 +467,27 @@
   </div>
 </section>
 
+<!-- ============ COUNTED ============ -->
+<section class="section light" style="border-top:1px solid var(--line); min-height:0">
+  <div class="wrap" style="padding-top:80px; padding-bottom:80px">
+    <h2>Counted, not claimed.</h2>
+    <p class="lead">Security pages describe intent; the test suite describes behavior.</p>
+    <div class="stats">
+      <div class="stat"><span class="n">545</span><span class="l">automated tests against the running platform</span></div>
+      <div class="stat"><span class="n">5</span><span class="l">deterministic reconciliation checks per statement</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">export formats — QBO, Xero, generic CSV and .ofx</span></div>
+      <div class="stat"><span class="n">0</span><span class="l">flagged rows ever silently dropped or exported</span></div>
+    </div>
+    <p class="fineprint" style="margin-top:28px"><a href="/security.html">How we protect your clients' statements →</a></p>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="section light" id="faq" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <h2>Questions, answered</h2>
     <div class="faq-list">
-      <details class="faq"><summary>What does VerifyKeep export?</summary><p>CSV files in three layouts: QuickBooks Online, Xero and a generic CSV for any spreadsheet. You import the file into your accounting software; VerifyKeep does not connect to or sync with QuickBooks or Xero directly.</p></details>
+      <details class="faq"><summary>What does VerifyKeep export?</summary><p>Four file formats: CSV in QuickBooks Online and Xero layouts, a generic CSV for any spreadsheet, and a native .ofx file your accounting tools read directly. You import the file into your accounting software; VerifyKeep does not connect to or sync with QuickBooks or Xero directly.</p></details>
       <details class="faq"><summary>What happens when a statement doesn't balance?</summary><p>The export is blocked and the validation report shows exactly which check failed and by how much. You can review the flagged rows next to the original PDF. Only a firm administrator can grant an exception, and every exception is written to the audit log.</p></details>
       <details class="faq"><summary>Can VerifyKeep change my numbers to make a statement balance?</summary><p>No. Amounts are never edited to force a balance, and amounts aren't editable in the app. You can edit descriptions, which re-runs validation. Rows missing a date, amount or direction stop the export instead of being dropped.</p></details>
       <details class="faq"><summary>How long do you keep my statements?</summary><p>You choose per client: delete 24 hours after export, keep for 30 days (the default) or keep for 90 days. Firm administrators can also delete a statement whenever it isn't being processed.</p></details>
@@ -488,6 +516,7 @@
       <span>© 2026 VerifyKeep · Bank statements in. Balanced books out.</span>
       <nav>
         <a href="/bank-statement-converter/">Converter</a>
+        <a href="/security.html">Security</a>
         <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
         <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
       </nav>
