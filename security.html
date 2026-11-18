@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security &amp; data handling | VerifyKeep</title>
+<meta name="description" content="How VerifyKeep protects your clients' bank statements: encryption at rest and in transit, database-level tenant isolation, admin MFA, your choice of retention, and uploads hardened against hostile PDFs.">
+<link rel="icon" type="image/svg+xml" href="brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/security.html">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/security.html">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/security.html">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/security.html">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/security.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    color: var(--ink-2);
+    line-height: 1.55;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { max-width: 1160px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta { color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  main { padding: calc(var(--nav) + 64px) 0 96px; }
+  .dark { background: var(--ink); color: #fff; }
+  h1 {
+    font-size: clamp(38px, 5vw, 56px); line-height: 1.04; font-weight: 750;
+    letter-spacing: -0.026em; color: #fff; text-wrap: balance;
+  }
+  .lead { font-size: 18px; max-width: 640px; margin-top: 20px; color: var(--slate-300); }
+
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
+  @media (min-width: 800px) { .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; } }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
+
+  .note { margin-top: 40px; padding: 20px 24px; border: 1px solid var(--rule); border-radius: 10px;
+    background: rgba(18,180,126,.06); color: var(--slate-300); font-size: 14.5px; }
+  .note b { color: var(--mint-bright); }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0; font-size: 13.5px; color: var(--slate-400); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1160px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) { .wrap { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 520px) { header nav a:not(.nav-cta):not(:first-child) { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/bank-statement-converter/">Converter</a>
+      <a href="/#how">How it works</a>
+      <a href="/#checks">Five checks</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a class="nav-cta" href="/#waitlist">Join the waitlist</a>
+      <span class="langs"><a href="/security.html" aria-current="true">EN</a><a href="/es/security.html">ES</a><a href="/ar/security.html">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main class="dark">
+  <div class="wrap">
+    <h1>Your clients' statements are someone else's life savings. We treat them that way.</h1>
+    <p class="lead">VerifyKeep exists to read financial documents — the most sensitive files a firm handles. This page states plainly what we store, who can reach it, and what happens when you leave.</p>
+
+    <ul class="ruled">
+      <li>
+        <h3>Encrypted at rest and in transit</h3>
+        <p>Every statement file is stored in AWS S3 with server-side encryption keyed by AWS KMS (SSE-KMS). All traffic runs over TLS. There is no path in the application that writes a statement unencrypted.</p>
+      </li>
+      <li>
+        <h3>Tenant isolation at the database layer</h3>
+        <p>Each workspace's data is separated by PostgreSQL row-level security — the database itself refuses cross-workspace reads, not just application code. One firm's statements cannot be returned to another firm's session.</p>
+      </li>
+      <li>
+        <h3>MFA required for administrative access</h3>
+        <p>Workspace administrators must enroll TOTP multi-factor authentication before they can manage members, billing, or retention settings. Platform-operator access requires a separate role plus MFA.</p>
+      </li>
+      <li>
+        <h3>You choose how long statements stay</h3>
+        <p>Retention is a per-client setting: delete after export, keep 30 days, or keep 90 days. Deletion tombstones preserve the audit trail — what was processed and when — without keeping the document itself.</p>
+      </li>
+      <li>
+        <h3>Uploads hardened against hostile files</h3>
+        <p>PDFs containing JavaScript, embedded files, launch actions, or encryption are rejected at inspection. Uploads are rate-limited per user and per workspace, capped at 100&nbsp;MB and 500 pages, and text extraction runs in a memory- and time-bounded subprocess.</p>
+      </li>
+      <li>
+        <h3>How the AI extraction works</h3>
+        <p>Statement pages are sent to a structured-output API that returns transactions as strict JSON. Under the provider's API terms, API inputs are not used to train models. No statement is ever posted publicly or browsed by a human as part of normal processing.</p>
+      </li>
+      <li>
+        <h3>Flagged rows are never hidden</h3>
+        <p>Rows that fail reconciliation are surfaced for review — never silently dropped or exported. What you export is what the checks proved, and the export carries the verdict.</p>
+      </li>
+      <li>
+        <h3>Report a vulnerability</h3>
+        <p>Email <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a> with "SECURITY" in the subject. We read every report and respond before we ship the fix.</p>
+      </li>
+    </ul>
+
+    <div class="note">
+      <b>Counted, not claimed:</b> the platform currently runs 545 automated tests, 5 deterministic reconciliation checks, 4 export formats, and per-user plus per-workspace upload limits. Security pages describe intent; tests describe behavior.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VerifyKeep · Bank statements in. Balanced books out.</span>
+    <nav>
+      <a href="/bank-statement-converter/">Converter</a>
+      <a href="/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
