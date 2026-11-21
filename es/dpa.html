@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acuerdo de tratamiento de datos | VerifyKeep</title>
+<meta name="description" content="El Acuerdo de tratamiento de datos de VerifyKeep: cómo procesamos los datos de las cuentas bancarias de tus clientes como encargado del tratamiento — alcance, medidas de seguridad, subencargados, aviso de brechas, eliminación y auditorías.">
+<link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/es/dpa.html">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/dpa.html">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/dpa.html">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/dpa.html">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/es/dpa.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    color: var(--ink-2);
+    line-height: 1.55;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { max-width: 1160px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta { color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  main { padding: calc(var(--nav) + 64px) 0 96px; }
+  .dark { background: var(--ink); color: #fff; }
+  h1 {
+    font-size: clamp(38px, 5vw, 56px); line-height: 1.04; font-weight: 750;
+    letter-spacing: -0.026em; color: #fff; text-wrap: balance;
+  }
+  .lead { font-size: 18px; max-width: 640px; margin-top: 20px; color: var(--slate-300); }
+
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
+  @media (min-width: 800px) {
+    .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; }
+    .ruled li > :nth-child(n+3) { grid-column: 2; }
+  }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  .ruled h3 .no { color: var(--mint-bright); font-weight: 600; margin-right: 10px; }
+  .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
+  .ruled p + p { margin-top: 10px; }
+  .ruled ul { margin-top: 10px; padding-inline-start: 20px; }
+  .ruled ul li { border: 0; padding: 4px 0; display: list-item; color: var(--slate-300); font-size: 15px; }
+
+  .note { margin-top: 40px; padding: 20px 24px; border: 1px solid var(--rule); border-radius: 10px;
+    background: rgba(18,180,126,.06); color: var(--slate-300); font-size: 14.5px; }
+  .note b { color: var(--mint-bright); }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0; font-size: 13.5px; color: var(--slate-400); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1160px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) { .wrap { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 520px) { header nav a:not(.nav-cta):not(:first-child) { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/es/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/es/bank-statement-converter/">Conversor</a>
+      <a href="/es/#how">Cómo funciona</a>
+      <a href="/es/#checks">Cinco verificaciones</a>
+      <a href="/es/#pricing">Precios</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a class="nav-cta" href="/es/#waitlist">Únete a la lista</a>
+      <span class="langs"><a href="/dpa.html">EN</a><a href="/es/dpa.html" aria-current="true">ES</a><a href="/ar/dpa.html">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main class="dark">
+  <div class="wrap">
+    <h1>Acuerdo de tratamiento de datos</h1>
+    <p class="lead">Este acuerdo se aplica cuando tu firma (el responsable del tratamiento) usa VerifyKeep (el encargado del tratamiento) para extraer y verificar datos de estados de cuenta bancarios que cargas. Forma parte de los Términos de servicio y entra en vigor al crear tu cuenta.</p>
+
+    <ul class="ruled">
+      <li>
+        <h3><span class="no">1.</span> Roles y alcance</h3>
+        <p>Tu firma es la responsable del tratamiento; VerifyKeep es el encargado. Procesamos datos personales contenidos en los estados bancarios cargados —nombres de titulares, números de cuenta y detalles de transacciones— únicamente para extraer, normalizar, reconciliar y exportar datos de transacciones para ti, y para operar y proteger el servicio.</p>
+        <p>El tratamiento continúa mientras tu cuenta exista, según tu configuración de retención, y hasta que se complete la eliminación descrita en la sección 8.</p>
+      </li>
+      <li>
+        <h3><span class="no">2.</span> Instrucciones documentadas</h3>
+        <p>Procesamos datos solo según tus instrucciones documentadas —principalmente tus cargas y acciones en la aplicación— y lo que exigen los Términos y este acuerdo. Si una instrucción violaría la ley aplicable, te lo comunicamos antes de ejecutarla.</p>
+      </li>
+      <li>
+        <h3><span class="no">3.</span> Confidencialidad</h3>
+        <p>Toda persona en VerifyKeep con acceso a datos de clientes está sujeta a obligaciones de confidencialidad. El acceso se limita a lo que cada persona necesita para su trabajo, se registra en un historial de auditoría de solo agregado y se revisa ante cambios de rol o salidas.</p>
+      </li>
+      <li>
+        <h3><span class="no">4.</span> Medidas técnicas y organizativas</h3>
+        <p>Mantenemos los controles descritos en la <a href="/es/security.html">página de seguridad</a>, incluyendo:</p>
+        <ul>
+          <li>Cifrado de los archivos de estados en reposo (AWS S3 SSE-KMS) y de todo el tráfico en tránsito (TLS)</li>
+          <li>Seguridad a nivel de fila de PostgreSQL que impone el aislamiento entre espacios de trabajo en la propia base de datos</li>
+          <li>Autenticación multifactor TOTP obligatoria para acciones administrativas</li>
+          <li>Límites de velocidad, bloqueos de inicio de sesión y detección automática de accesos anómalos</li>
+          <li>Registro de auditoría de solo agregado de las acciones del espacio de trabajo</li>
+          <li>Procesamiento de estados acotado en tiempo y memoria</li>
+        </ul>
+      </li>
+      <li>
+        <h3><span class="no">5.</span> Subencargados</h3>
+        <p>Nos autorizas a usar estas categorías de subencargados: alojamiento en la nube y almacenamiento de objetos (AWS), envío de correo transaccional, procesamiento de pagos (Stripe) y una API de IA de extracción estructurada para el análisis de estados, bajo términos que prohíben usar las entradas para entrenar modelos.</p>
+        <p>Imponemos a cada subencargado obligaciones de protección de datos al menos tan estrictas como las de este acuerdo y respondemos por sus actos. Los nuevos subencargados relevantes se anuncian en esta página antes de adoptarse; puedes objetar dentro de 14 días.</p>
+      </li>
+      <li>
+        <h3><span class="no">6.</span> Solicitudes de interesados</h3>
+        <p>Te ayudamos a responder solicitudes de acceso, rectificación, eliminación y portabilidad de los datos que procesamos para ti —incluida la eliminación de cuenta de autoservicio integrada en Configuración. Si un interesado nos contacta directamente, lo derivamos a ti salvo que la ley exija lo contrario.</p>
+      </li>
+      <li>
+        <h3><span class="no">7.</span> Aviso de brechas de datos personales</h3>
+        <p>Te notificamos sin demora indebida tras confirmar una brecha de datos personales que afecte a datos que procesamos para ti, indicando qué ocurrió, qué datos fueron afectados y las medidas de mitigación. El contacto administrativo para avisos de brechas es el correo del administrador del espacio de trabajo registrado.</p>
+      </li>
+      <li>
+        <h3><span class="no">8.</span> Devolución y eliminación</h3>
+        <p>Tus datos son exportables en cualquier momento en formato CSV, QBO, Xero u OFX. Los estados se eliminan según tu configuración de retención por cliente (tras la exportación, 30 días o 90 días). Al cerrar tu cuenta se eliminan los archivos cargados y los datos extraídos; las entradas de auditoría se anonimizan para que el registro sobreviva sin tus datos personales. Stripe conserva los registros de facturación según sus propios términos.</p>
+      </li>
+      <li>
+        <h3><span class="no">9.</span> Auditorías y evidencia de cumplimiento</h3>
+        <p>Ponemos a tu disposición la información razonablemente necesaria para demostrar el cumplimiento —este acuerdo, la página de seguridad, nuestra suite de pruebas automatizadas y exportaciones del registro de auditoría. Las auditorías presenciales se sustituyen por cuestionarios escritos una vez al año; revisiones adicionales ocurren cuando la ley lo exige.</p>
+      </li>
+      <li>
+        <h3><span class="no">10.</span> Transferencias internacionales</h3>
+        <p>El procesamiento de estados se ejecuta en regiones de AWS en EE. UU. Cuando la legislación de protección de datos exige un mecanismo de transferencia, las Cláusulas Contractuales Tipo de la UE se incorporan por referencia como salvaguarda.</p>
+      </li>
+      <li>
+        <h3><span class="no">11.</span> Responsabilidad y prevalencia</h3>
+        <p>La responsabilidad bajo este acuerdo sigue la limitación de los Términos de servicio. Si este acuerdo entra en conflicto con los Términos, este acuerdo prevalece en materia de tratamiento de datos.</p>
+      </li>
+      <li>
+        <h3><span class="no">12.</span> Contacto y firma</h3>
+        <p>Preguntas y solicitudes: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>. Como este acuerdo se acepta junto con los Términos al registrarse, no se requiere firma separada —la creación de tu cuenta es tu firma, y la nuestra.</p>
+      </li>
+    </ul>
+
+    <div class="note">
+      <b>Plantilla, no asesoría legal:</b> este acuerdo está redactado para la relación habitual responsable–encargado. Si tu firma opera bajo un régimen específico (RGPD, UK GDPR, leyes estatales de privacidad), haz que un asesor legal revise esta plantilla contra tus obligaciones.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VerifyKeep · Estados de cuenta bancarios dentro. Libros balanceados fuera.</span>
+    <nav>
+      <a href="/es/bank-statement-converter/">Conversor</a>
+      <a href="/es/security.html">Seguridad</a>
+      <a href="/es/blog/convert-bank-statement-pdf-to-quickbooks/">Blog</a>
+      <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

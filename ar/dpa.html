@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اتفاقية معالجة البيانات | VerifyKeep</title>
+<meta name="description" content="اتفاقية معالجة البيانات في VerifyKeep: كيف نعالج بيانات كشوف حسابات عملائك بصفتنا معالجًا — النطاق، تدابير الأمان، المعالجون الفرعيون، إشعار الاختراقات، الحذف وعمليات التدقيق.">
+<link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
+<link rel="canonical" href="https://verifykeep.com/ar/dpa.html">
+<link rel="alternate" hreflang="en" href="https://verifykeep.com/dpa.html">
+<link rel="alternate" hreflang="es" href="https://verifykeep.com/es/dpa.html">
+<link rel="alternate" hreflang="ar" href="https://verifykeep.com/ar/dpa.html">
+<link rel="alternate" hreflang="x-default" href="https://verifykeep.com/ar/dpa.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071224;
+    --ink-2: #0d1b33;
+    --rule: #1c2f4d;
+    --mint: #12b47e;
+    --mint-bright: #2dd49b;
+    --mint-deep: #0d8a61;
+    --paper: #f8fafc;
+    --line: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-600: #475569;
+    --nav: 72px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    color: var(--ink-2);
+    line-height: 1.55;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--mint-deep); }
+  a:focus-visible { outline: 2px solid var(--mint-bright); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(7,18,36,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    height: var(--nav);
+  }
+  header .wrap { max-width: 1160px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brandrow svg { height: 34px; width: 34px; }
+  .wordmark { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  header nav { display: flex; align-items: center; gap: 4px; }
+  header nav a {
+    color: var(--slate-300); text-decoration: none; font-size: 14px; font-weight: 500;
+    padding: 8px 14px; border-radius: 8px;
+  }
+  header nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  header nav a.nav-cta { color: var(--ink); background: var(--mint-bright); font-weight: 700; margin-left: 8px; }
+  .langs { display: flex; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--rule); }
+  .langs a { font-size: 12.5px; padding: 6px 8px; color: var(--slate-400); }
+  .langs a[aria-current] { color: #fff; font-weight: 700; }
+
+  main { padding: calc(var(--nav) + 64px) 0 96px; }
+  .dark { background: var(--ink); color: #fff; }
+  h1 {
+    font-size: clamp(38px, 5vw, 56px); line-height: 1.04; font-weight: 750;
+    letter-spacing: -0.026em; color: #fff; text-wrap: balance;
+  }
+  .lead { font-size: 18px; max-width: 640px; margin-top: 20px; color: var(--slate-300); }
+
+  .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
+  .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
+  @media (min-width: 800px) {
+    .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; }
+    .ruled li > :nth-child(n+3) { grid-column: 2; }
+  }
+  .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+  .ruled h3 .no { color: var(--mint-bright); font-weight: 600; margin-inline-start: 10px; }
+  .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
+  .ruled p + p { margin-top: 10px; }
+  .ruled ul { margin-top: 10px; padding-inline-start: 20px; }
+  .ruled ul li { border: 0; padding: 4px 0; display: list-item; color: var(--slate-300); font-size: 15px; }
+
+  .note { margin-top: 40px; padding: 20px 24px; border: 1px solid var(--rule); border-radius: 10px;
+    background: rgba(18,180,126,.06); color: var(--slate-300); font-size: 14.5px; }
+  .note b { color: var(--mint-bright); }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0; font-size: 13.5px; color: var(--slate-400); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1160px; }
+  footer a { color: var(--slate-300); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) { .wrap { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 520px) { header nav a:not(.nav-cta):not(:first-child) { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brandrow" href="/ar/"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 100 100" role="img" aria-label="VerifyKeep"><rect x="0" y="0" width="100" height="100" rx="24" fill="#0B1F3A"/><path stroke="#12B47E" d="M25 52 L43 70 L76 32" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="40.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="51.2" width="72" height="3.4" fill="#0B1F3A"/><rect x="14" y="62.2" width="72" height="3.4" fill="#0B1F3A"/></svg><span class="wordmark">VerifyKeep</span></a>
+    <nav>
+      <a href="/ar/bank-statement-converter/">المحوّل</a>
+      <a href="/ar/#how">آلية العمل</a>
+      <a href="/ar/#checks">التحققات الخمسة</a>
+      <a href="/ar/#pricing">الأسعار</a>
+      <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
+      <a class="nav-cta" href="/ar/#waitlist">انضم لقائمة الانتظار</a>
+      <span class="langs"><a href="/dpa.html">EN</a><a href="/es/dpa.html">ES</a><a href="/ar/dpa.html" aria-current="true">AR</a></span>
+    </nav>
+  </div>
+</header>
+
+<main class="dark">
+  <div class="wrap">
+    <h1>اتفاقية معالجة البيانات</h1>
+    <p class="lead">تنطبق هذه الاتفاقية عندما تستخدم شركتك (المسؤول عن البيانات) VerifyKeep (المعالج) لاستخراج البيانات من كشوف الحسابات البنكية التي ترفعها والتحقق منها. وهي جزء من شروط الخدمة وتسري عند إنشاء حسابك.</p>
+
+    <ul class="ruled">
+      <li>
+        <h3><span class="no">1.</span> الأدوار والنطاق</h3>
+        <p>شركتك هي المسؤول عن البيانات، وVerifyKeep هو المعالج. نعالج البيانات الشخصية الواردة في كشوف الحسابات البنكية المرفوعة —أسماء أصحاب الحسابات وأرقام الحسابات وتفاصيل المعاملات— فقط لاستخراج بيانات المعاملات وتسويتها وتصديرها لك، ولتشغيل الخدمة وتأمينها.</p>
+        <p>تستمر المعالجة طوال مدة وجود حسابك وبحسب إعداد الاحتفاظ الذي تختاره، ثم حتى اكتمال الحذف كما في القسم 8.</p>
+      </li>
+      <li>
+        <h3><span class="no">2.</span> التعليمات الموثّقة</h3>
+        <p>نعالج البيانات فقط وفق تعليماتك الموثّقة —رفع الملفات وإجراءاتك داخل التطبيق أساسًا— إضافةً إلى ما تشترطه الشروط وهذه الاتفاقية. وإذا كانت أي تعليمات ستخالف القانون المعمول به، نخبرك قبل تنفيذها.</p>
+      </li>
+      <li>
+        <h3><span class="no">3.</span> السرية</h3>
+        <p>كل فرد في VerifyKeep يمكنه الوصول إلى بيانات العملاء ملزم بالتزامات سرية. ويقتصر الوصول على ما يحتاجه كل شخص لأداء عمله، ويُسجَّل في سجل تدقيق غير قابل للتعديل، ويُراجَع عند تغيّر الدور أو مغادرة الموظف.</p>
+      </li>
+      <li>
+        <h3><span class="no">4.</span> التدابير التقنية والتنظيمية</h3>
+        <p>نحافظ على الضوابط الموصوفة في <a href="/ar/security.html">صفحة الأمان</a>، ومنها:</p>
+        <ul>
+          <li>تشفير ملفات الكشوف أثناء التخزين (AWS S3 SSE-KMS) وكل حركة المرور أثناء النقل (TLS)</li>
+          <li>أمان على مستوى الصفوف في PostgreSQL يفرض عزل مساحات العمل في طبقة قاعدة البيانات نفسها</li>
+          <li>توثيق متعدد العوامل TOTP إلزامي للإجراءات الإدارية</li>
+          <li>حدود لمعدل الطلبات، وقفل لمحاولات تسجيل الدخول، وكشف آلي للوصول الشاذ</li>
+          <li>سجل تدقيق غير قابل للتعديل لإجراءات مساحة العمل</li>
+          <li>معالجة الكشوف مقيّدة بالزمن والذاكرة</li>
+        </ul>
+      </li>
+      <li>
+        <h3><span class="no">5.</span> المعالجون الفرعيون</h3>
+        <p>تخوّلنا استخدام فئات المعالجين الفرعيين التالية: الاستضافة السحابية وتخزين العناصر (AWS)، وتسليم البريد للرسائل التشغيلية، ومعالجة المدفوعات (Stripe)، وواجهة ذكاء اصطناعي للاستخراج المنظّم لتحليل الكشوف بموجب شروط API تحظر تدريب النماذج على المدخلات.</p>
+        <p>نفرض على كل معالج فرعي التزامات حماية بيانات لا تقل صرامة عن هذه الاتفاقية ونبقى مسؤولين عن أفعالهم. وتُعلن المعالجات الفرعية الجديدة الجوهرية على هذه الصفحة قبل اعتمادها؛ ويمكنك الاعتراض خلال 14 يومًا.</p>
+      </li>
+      <li>
+        <h3><span class="no">6.</span> طلبات أصحاب البيانات</h3>
+        <p>نساعدك في الرد على طلبات الوصول والتصحيح والحذف وقابلية النقل للبيانات التي نعالجها لك —بما فيها حذف الحساب الذاتي المدمج في الإعدادات. وإن تواصل معنا صاحب بيانات مباشرةً، نحيله إليك ما لم يقتضِ القانون خلاف ذلك.</p>
+      </li>
+      <li>
+        <h3><span class="no">7.</span> إشعار اختراق البيانات الشخصية</h3>
+        <p>نُخطرك دون تأخير غير مبرر بعد تأكيد اختراق بيانات شخصية يؤثر على بيانات نعالجها لك، موضحين ما حدث والبيانات المتأثرة وخطوات التخفيف. وجهة إشعارات الاختراق هي بريد مدير مساحة العمل المسجّل.</p>
+      </li>
+      <li>
+        <h3><span class="no">8.</span> الإرجاع والحذف</h3>
+        <p>بياناتك قابلة للتصدير في أي وقت بصيغ CSV وQBO وXero وOFX. وتحذف الكشوف وفق إعداد الاحتفاظ لكل عميل (بعد التصدير أو 30 يومًا أو 90 يومًا). وعند إغلاق حسابك تُحذف الملفات المرفوعة والبيانات المستخرجة؛ وتُجَهَّل سجلات التدقيق ليبقى السجل دون بياناتك الشخصية. يحتفظ Stripe بسجلات الفوترة وفق شروطه الخاصة.</p>
+      </li>
+      <li>
+        <h3><span class="no">9.</span> عمليات التدقيق وأدلة الامتثال</h3>
+        <p>نوفر المعلومات اللازمة بشكل معقول لإثبات الامتثال —هذه الاتفاقية وصفحة الأمان ومجموعة الاختبارات الآلية وصادرات سجل التدقيق. وتُستبدل التدقيقات الميدانية باستبيانات كتابية مرة سنويًا؛ وتحدث مراجعات إضافية حيث يشترط القانون.</p>
+      </li>
+      <li>
+        <h3><span class="no">10.</span> التحويلات الدولية</h3>
+        <p>تجري معالجة الكشوف في مناطق AWS داخل الولايات المتحدة. وحيث يشترط قانون حماية البيانات آلية نقل، تُدرج البنود التعاقدية القياسية للاتحاد الأوروبي بالإحالة بوصفها ضمانة النقل.</p>
+      </li>
+      <li>
+        <h3><span class="no">11.</span> المسؤولية والأولوية</h3>
+        <p>تخضع المسؤولية بموجب هذه الاتفاقية للحد الوارد في شروط الخدمة. وإن تعارضت هذه الاتفاقية مع الشروط، تسود هذه الاتفاقية في مسائل المعالجة.</p>
+      </li>
+      <li>
+        <h3><span class="no">12.</span> التواصل والتوقيع</h3>
+        <p>للأسئلة والطلبات: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>. ولأن هذه الاتفاقية تُقبَل مع الشروط عند التسجيل، لا حاجة لتوقيع مستقل —إنشاء حسابك هو توقيعك، وكذلك توقيعنا.</p>
+      </li>
+    </ul>
+
+    <div class="note">
+      <b>قالب لا استشارة قانونية:</b> صيغت هذه الاتفاقية للعلاقة المعتادة بين مسؤول ومعالج. وإن عملت شركتك تحت نظام محدد (GDPR أو UK GDPR أو قوانين خصوصية الولايات)، اجعل مستشارًا قانونيًا يراجع هذا القالب مقابل التزاماتك.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 VerifyKeep · تُدخل كشوف الحسابات وتُخرج دفاتر متوازنة.</span>
+    <nav>
+      <a href="/ar/bank-statement-converter/">المحوّل</a>
+      <a href="/ar/security.html">الأمان</a>
+      <a href="/ar/blog/convert-bank-statement-pdf-to-quickbooks/">المدونة</a>
+      <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
