@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acuerdo de tratamiento de datos | VerifyKeep</title>
-<meta name="description" content="El Acuerdo de tratamiento de datos de VerifyKeep: cómo procesamos los datos de las cuentas bancarias de tus clientes como encargado del tratamiento — alcance, medidas de seguridad, subencargados, aviso de brechas, eliminación y auditorías.">
+<title>Acuerdo de tratamiento de datos (borrador) | VerifyKeep</title>
+<meta name="description" content="Borrador del Acuerdo de tratamiento de datos de VerifyKeep. Aún sin vigencia; pendiente de datos de la entidad legal y revisión por un abogado.">
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="../brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/es/dpa.html">
 <link rel="alternate" hreflang="en" href="https://verifykeep.com/dpa.html">
@@ -76,13 +77,15 @@
   .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
   .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
   @media (min-width: 800px) {
-    .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; }
+    .ruled li { grid-template-columns: 300px 1fr; column-gap: 48px; row-gap: 0; align-items: baseline; }
     .ruled li > :nth-child(n+3) { grid-column: 2; }
   }
   .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
   .ruled h3 .no { color: var(--mint-bright); font-weight: 600; margin-right: 10px; }
   .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
   .ruled p + p { margin-top: 10px; }
+  .ruled ul + p { margin-top: 10px; }
+  main.dark a { color: var(--mint-bright); }
   .ruled ul { margin-top: 10px; padding-inline-start: 20px; }
   .ruled ul li { border: 0; padding: 4px 0; display: list-item; color: var(--slate-300); font-size: 15px; }
 
@@ -119,72 +122,82 @@
 
 <main class="dark">
   <div class="wrap">
-    <h1>Acuerdo de tratamiento de datos</h1>
-    <p class="lead">Este acuerdo se aplica cuando tu firma (el responsable del tratamiento) usa VerifyKeep (el encargado del tratamiento) para extraer y verificar datos de estados de cuenta bancarios que cargas. Forma parte de los Términos de servicio y entra en vigor al crear tu cuenta.</p>
+    <h1>Acuerdo de tratamiento de datos (borrador)</h1>
+    <div class="note" role="note">
+      <b>Borrador, sin vigencia.</b> VerifyKeep todavía no acepta cuentas de clientes y este acuerdo no ha sido revisado por un abogado. Lo publicamos para que las firmas conozcan los términos que pensamos ofrecer. No obliga a nadie hasta que se publique una versión final con fecha de entrada en vigor y se presente para su aceptación al registrarse. Antes deben resolverse los puntos pendientes que figuran al final de esta página.
+    </div>
+    <p class="lead">Este borrador se aplicaría cuando tu firma (el responsable del tratamiento) use VerifyKeep (el encargado del tratamiento) para extraer y verificar datos de los estados de cuenta bancarios que cargues. El encargado será la entidad legal que se indicará aquí antes del lanzamiento; su nombre y dirección postal aún están pendientes.</p>
 
     <ul class="ruled">
       <li>
-        <h3><span class="no">1.</span> Roles y alcance</h3>
-        <p>Tu firma es la responsable del tratamiento; VerifyKeep es el encargado. Procesamos datos personales contenidos en los estados bancarios cargados —nombres de titulares, números de cuenta y detalles de transacciones— únicamente para extraer, normalizar, reconciliar y exportar datos de transacciones para ti, y para operar y proteger el servicio.</p>
-        <p>El tratamiento continúa mientras tu cuenta exista, según tu configuración de retención, y hasta que se complete la eliminación descrita en la sección 8.</p>
+        <h3><span class="no">1.</span> Funciones y alcance</h3>
+        <p>Tu firma es el responsable del tratamiento; VerifyKeep es el encargado. Trataríamos los datos personales de los estados de cuenta cargados (nombres de titulares, números de cuenta y detalles de transacciones de tus clientes y de las personas con las que operan) solo para extraer, normalizar, conciliar y exportar datos de transacciones para ti, y para operar y proteger el servicio.</p>
+        <p>Los datos de cuenta de tus propios usuarios y contactos de facturación se rigen por nuestro Aviso de privacidad, no por este acuerdo.</p>
       </li>
       <li>
         <h3><span class="no">2.</span> Instrucciones documentadas</h3>
-        <p>Procesamos datos solo según tus instrucciones documentadas —principalmente tus cargas y acciones en la aplicación— y lo que exigen los Términos y este acuerdo. Si una instrucción violaría la ley aplicable, te lo comunicamos antes de ejecutarla.</p>
+        <p>Tratamos los datos de clientes solo según tus instrucciones documentadas, principalmente tus cargas, configuraciones y acciones en la aplicación. Si consideramos que una instrucción infringiría la ley aplicable, te lo diremos de inmediato y no la ejecutaremos hasta que se resuelva.</p>
       </li>
       <li>
-        <h3><span class="no">3.</span> Confidencialidad</h3>
-        <p>Toda persona en VerifyKeep con acceso a datos de clientes está sujeta a obligaciones de confidencialidad. El acceso se limita a lo que cada persona necesita para su trabajo, se registra en un historial de auditoría de solo agregado y se revisa ante cambios de rol o salidas.</p>
+        <h3><span class="no">3.</span> Confidencialidad y personal</h3>
+        <p>Actualmente VerifyKeep lo opera una sola persona, que es la única con acceso administrativo a los sistemas de producción. Antes de dar acceso a datos de clientes a cualquier otra persona, esta firmará un acuerdo de confidencialidad por escrito; su acceso se limitará a lo que requiera su función y se retirará cuando deje de colaborar.</p>
       </li>
       <li>
         <h3><span class="no">4.</span> Medidas técnicas y organizativas</h3>
-        <p>Mantenemos los controles descritos en la <a href="/es/security.html">página de seguridad</a>, incluyendo:</p>
+        <p>La aplicación incluye los controles siguientes, descritos con más detalle en la <a href="/es/security.html">página de Seguridad</a>. Están implementados y probados en el código; no han sido auditados de forma independiente.</p>
         <ul>
-          <li>Cifrado de los archivos de estados en reposo (AWS S3 SSE-KMS) y de todo el tráfico en tránsito (TLS)</li>
-          <li>Seguridad a nivel de fila de PostgreSQL que impone el aislamiento entre espacios de trabajo en la propia base de datos</li>
-          <li>Autenticación multifactor TOTP obligatoria para acciones administrativas</li>
-          <li>Límites de velocidad, bloqueos de inicio de sesión y detección automática de accesos anómalos</li>
-          <li>Registro de auditoría de solo agregado de las acciones del espacio de trabajo</li>
-          <li>Procesamiento de estados acotado en tiempo y memoria</li>
+          <li>Archivos de estados de cuenta cifrados en reposo en Amazon S3 con claves de AWS KMS; tráfico cifrado en tránsito con TLS</li>
+          <li>Seguridad a nivel de fila de PostgreSQL que separa los datos de cada espacio de trabajo en la base de datos</li>
+          <li>Autenticación de dos factores TOTP obligatoria para los administradores antes de acciones administrativas como facturación, gestión de miembros, cambios de conservación y eliminación de estados de cuenta</li>
+          <li>Límites de solicitudes y bloqueos en el inicio de sesión y en los códigos de dos factores, y alertas de seguridad ante ráfagas de inicios de sesión, intentos de acceso entre espacios de trabajo y volúmenes de exportación inusuales</li>
+          <li>Un registro de auditoría de solo anexado de las acciones del espacio de trabajo</li>
+          <li>Procesamiento de páginas escaneadas aislado en un proceso separado con límites de tiempo y memoria</li>
         </ul>
       </li>
       <li>
         <h3><span class="no">5.</span> Subencargados</h3>
-        <p>Nos autorizas a usar estas categorías de subencargados: alojamiento en la nube y almacenamiento de objetos (AWS), envío de correo transaccional, procesamiento de pagos (Stripe) y una API de IA de extracción estructurada para el análisis de estados, bajo términos que prohíben usar las entradas para entrenar modelos.</p>
-        <p>Imponemos a cada subencargado obligaciones de protección de datos al menos tan estrictas como las de este acuerdo y respondemos por sus actos. Los nuevos subencargados relevantes se anuncian en esta página antes de adoptarse; puedes objetar dentro de 14 días.</p>
+        <p>Autorizas a los siguientes subencargados:</p>
+        <ul>
+          <li><b>Amazon Web Services, Inc.</b>: alojamiento, base de datos, almacenamiento de archivos, correo transaccional (Amazon SES) y OCR de páginas escaneadas (Amazon Textract). Región: us-east-2 (Ohio, Estados Unidos).</li>
+          <li><b>OpenAI</b>: extracción estructurada de transacciones a partir del texto de los estados de cuenta. Estados Unidos. OpenAI indica que, por defecto, los datos de la API no se usan para entrenar modelos y pueden conservarse hasta 30 días para vigilar abusos (<a href="https://openai.com/enterprise-privacy/">privacidad empresarial de OpenAI</a>).</li>
+          <li><b>Stripe, Inc.</b>: pagos de suscripciones. Stripe recibe los datos de facturación de tu firma, no los datos de los estados de cuenta.</li>
+        </ul>
+        <p>Usamos a cada proveedor según sus condiciones estándar de tratamiento de datos. Publicaremos cualquier subencargado nuevo en esta página y avisaremos por correo a los administradores al menos 14 días antes de que reciba datos de clientes. Si te opones, puedes cerrar tu espacio de trabajo y eliminaremos tus datos como se describe en la sección 8.</p>
       </li>
       <li>
-        <h3><span class="no">6.</span> Solicitudes de interesados</h3>
-        <p>Te ayudamos a responder solicitudes de acceso, rectificación, eliminación y portabilidad de los datos que procesamos para ti —incluida la eliminación de cuenta de autoservicio integrada en Configuración. Si un interesado nos contacta directamente, lo derivamos a ti salvo que la ley exija lo contrario.</p>
+        <h3><span class="no">6.</span> Solicitudes de personas</h3>
+        <p>Te ayudaremos a responder solicitudes de acceso, eliminación y portabilidad sobre los datos que tratamos para ti. Los administradores pueden exportar y eliminar estados de cuenta en la aplicación. Si una persona nos contacta directamente sobre datos que tratamos para ti, te remitiremos la solicitud en lugar de responderla nosotros, salvo que la ley exija otra cosa.</p>
       </li>
       <li>
-        <h3><span class="no">7.</span> Aviso de brechas de datos personales</h3>
-        <p>Te notificamos sin demora indebida tras confirmar una brecha de datos personales que afecte a datos que procesamos para ti, indicando qué ocurrió, qué datos fueron afectados y las medidas de mitigación. El contacto administrativo para avisos de brechas es el correo del administrador del espacio de trabajo registrado.</p>
+        <h3><span class="no">7.</span> Aviso de incidentes de seguridad</h3>
+        <p>Si tenemos conocimiento de una violación de datos personales que afecte a datos que tratamos para ti, enviaremos un correo a los administradores de tu espacio de trabajo sin dilación indebida. No esperaremos a terminar la investigación. El primer aviso indicará lo que sepamos en ese momento y enviaremos actualizaciones a medida que sepamos más: qué ocurrió, los datos y el número aproximado de registros afectados, las consecuencias probables, las medidas adoptadas y un contacto para consultas. La versión final de este acuerdo fijará un plazo máximo de aviso.</p>
       </li>
       <li>
         <h3><span class="no">8.</span> Devolución y eliminación</h3>
-        <p>Tus datos son exportables en cualquier momento en formato CSV, QBO, Xero u OFX. Los estados se eliminan según tu configuración de retención por cliente (tras la exportación, 30 días o 90 días). Al cerrar tu cuenta se eliminan los archivos cargados y los datos extraídos; las entradas de auditoría se anonimizan para que el registro sobreviva sin tus datos personales. Stripe conserva los registros de facturación según sus propios términos.</p>
+        <p>Mientras se conserve un estado de cuenta, puedes exportarlo como CSV, CSV con formato de QuickBooks Online, CSV con formato de Xero u OFX. Las exportaciones requieren un estado de cuenta verificado o una excepción aprobada por un administrador.</p>
+        <p>Cada cliente tiene una configuración de conservación: eliminar 24 horas después de la primera exportación (o 90 días después del procesamiento si nunca se exporta), conservar 30 días (opción predeterminada) o conservar 90 días. Los administradores pueden eliminar en cualquier momento un estado de cuenta ya procesado.</p>
+        <p>Cuando el último miembro de un espacio de trabajo elimina su cuenta (los planes de pago deben cancelarse antes), eliminamos los archivos cargados y los datos extraídos y anonimizamos el registro de auditoría. Pueden quedar copias durante un tiempo limitado: las copias de seguridad cifradas de la base de datos caducan en un máximo de 14 días, y OpenAI puede conservar los datos enviados a la API hasta 30 días, como se indica en la sección 5. Stripe conserva los registros de facturación según sus propias condiciones.</p>
       </li>
       <li>
-        <h3><span class="no">9.</span> Auditorías y evidencia de cumplimiento</h3>
-        <p>Ponemos a tu disposición la información razonablemente necesaria para demostrar el cumplimiento —este acuerdo, la página de seguridad, nuestra suite de pruebas automatizadas y exportaciones del registro de auditoría. Las auditorías presenciales se sustituyen por cuestionarios escritos una vez al año; revisiones adicionales ocurren cuando la ley lo exige.</p>
+        <h3><span class="no">9.</span> Información de cumplimiento</h3>
+        <p>Una vez al año, o después de un incidente de seguridad, responderemos un cuestionario de seguridad razonable por escrito y te entregaremos este acuerdo y un resumen de nuestros controles. Actualmente no contamos con un informe SOC 2 ni ISO 27001.</p>
       </li>
       <li>
-        <h3><span class="no">10.</span> Transferencias internacionales</h3>
-        <p>El procesamiento de estados se ejecuta en regiones de AWS en EE. UU. Cuando la legislación de protección de datos exige un mecanismo de transferencia, las Cláusulas Contractuales Tipo de la UE se incorporan por referencia como salvaguarda.</p>
+        <h3><span class="no">10.</span> Ubicación y transferencias internacionales</h3>
+        <p>VerifyKeep almacena y trata los datos de clientes en Estados Unidos. El servicio está diseñado para firmas estadounidenses. Actualmente no ofrecemos condiciones de transferencia para la UE ni el Reino Unido. Si tu firma está sujeta al RGPD o al RGPD del Reino Unido, contáctanos antes de cargar estados de cuenta.</p>
       </li>
       <li>
-        <h3><span class="no">11.</span> Responsabilidad y prevalencia</h3>
-        <p>La responsabilidad bajo este acuerdo sigue la limitación de los Términos de servicio. Si este acuerdo entra en conflicto con los Términos, este acuerdo prevalece en materia de tratamiento de datos.</p>
+        <h3><span class="no">11.</span> Responsabilidad y prelación</h3>
+        <p>La responsabilidad derivada de este acuerdo seguirá la limitación de responsabilidad de los Términos del servicio definitivos, que aún no se han publicado. Si este acuerdo contradice los Términos en una cuestión de tratamiento de datos, prevalece este acuerdo.</p>
       </li>
       <li>
-        <h3><span class="no">12.</span> Contacto y firma</h3>
-        <p>Preguntas y solicitudes: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>. Como este acuerdo se acepta junto con los Términos al registrarse, no se requiere firma separada —la creación de tu cuenta es tu firma, y la nuestra.</p>
+        <h3><span class="no">12.</span> Aceptación y contacto</h3>
+        <p>Cuando sea definitivo, este acuerdo se presentará junto con los Términos del servicio al registrarse y la aceptación quedará registrada en tu cuenta. Consultas: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>.</p>
       </li>
     </ul>
 
     <div class="note">
-      <b>Plantilla, no asesoría legal:</b> este acuerdo está redactado para la relación habitual responsable–encargado. Si tu firma opera bajo un régimen específico (RGPD, UK GDPR, leyes estatales de privacidad), haz que un asesor legal revise esta plantilla contra tus obligaciones.
+      <b>Puntos pendientes antes de que este acuerdo entre en vigor:</b> nombre y dirección postal de la entidad legal; revisión por un abogado de este acuerdo, los Términos del servicio y el Aviso de privacidad; Términos definitivos con limitación de responsabilidad; aceptación registrada al registrarse; confirmación de los controles de datos de la cuenta de OpenAI y de la exclusión de servicios de IA de AWS para Textract; un plazo máximo de aviso de violaciones; y una decisión sobre condiciones de transferencia para la UE y el Reino Unido.
     </div>
   </div>
 </main>
