@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Processing Agreement | VerifyKeep</title>
-<meta name="description" content="VerifyKeep's Data Processing Agreement: how we process your clients' bank statement data as your processor — scope, security measures, subprocessors, breach notice, deletion, and audits.">
+<title>Data Processing Agreement (draft) | VerifyKeep</title>
+<meta name="description" content="Draft Data Processing Agreement for VerifyKeep. Not yet in effect; pending legal entity details and attorney review.">
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="brand-mark.svg">
 <link rel="canonical" href="https://verifykeep.com/dpa.html">
 <link rel="alternate" hreflang="en" href="https://verifykeep.com/dpa.html">
@@ -76,13 +77,15 @@
   .ruled { list-style: none; margin-top: 48px; border-top: 1px solid var(--rule); }
   .ruled li { border-bottom: 1px solid var(--rule); padding: 30px 0 26px; display: grid; gap: 8px; }
   @media (min-width: 800px) {
-    .ruled li { grid-template-columns: 300px 1fr; gap: 48px; align-items: baseline; }
+    .ruled li { grid-template-columns: 300px 1fr; column-gap: 48px; row-gap: 0; align-items: baseline; }
     .ruled li > :nth-child(n+3) { grid-column: 2; }
   }
   .ruled h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
   .ruled h3 .no { color: var(--mint-bright); font-weight: 600; margin-right: 10px; }
   .ruled p { color: var(--slate-300); font-size: 15.5px; max-width: 640px; }
   .ruled p + p { margin-top: 10px; }
+  .ruled ul + p { margin-top: 10px; }
+  main.dark a { color: var(--mint-bright); }
   .ruled ul { margin-top: 10px; padding-inline-start: 20px; }
   .ruled ul li { border: 0; padding: 4px 0; display: list-item; color: var(--slate-300); font-size: 15px; }
 
@@ -119,72 +122,82 @@
 
 <main class="dark">
   <div class="wrap">
-    <h1>Data Processing Agreement</h1>
-    <p class="lead">This DPA applies when your firm (the controller) uses VerifyKeep (the processor) to extract and verify data from bank statements you upload. It is part of the Terms of Service and takes effect when you create an account.</p>
+    <h1>Data Processing Agreement (draft)</h1>
+    <div class="note" role="note">
+      <b>Draft, not in effect.</b> VerifyKeep is not yet accepting customer accounts, and this DPA has not been reviewed by an attorney. We publish it so firms can see the terms we intend to offer. It binds no one until a final version is posted with an effective date and presented for acceptance at signup. The open items at the end of this page must be resolved first.
+    </div>
+    <p class="lead">This draft DPA would apply when your firm (the controller) uses VerifyKeep (the processor) to extract and verify data from bank statements you upload. The processor will be the legal entity named here before launch; that name and its mailing address are still to be added.</p>
 
     <ul class="ruled">
       <li>
         <h3><span class="no">1.</span> Roles and scope</h3>
-        <p>Your firm is the data controller; VerifyKeep is the data processor. We process personal data contained in uploaded bank statements — account holder names, account numbers, and transaction details — solely to extract, normalize, reconcile, and export transaction data for you, and to operate and secure the service.</p>
-        <p>Processing continues for as long as your account exists and per your chosen retention setting, then until deletion completes as described in section 8.</p>
+        <p>Your firm is the controller; VerifyKeep is the processor. We would process personal data in uploaded statements (account holder names, account numbers and transaction details about your clients and the people they transact with) only to extract, normalize, reconcile and export transaction data for you, and to operate and secure the service.</p>
+        <p>Account details for your own users and billing contacts are handled under our Privacy notice, not this DPA.</p>
       </li>
       <li>
         <h3><span class="no">2.</span> Documented instructions</h3>
-        <p>We process data only on your documented instructions — chiefly your uploads and in-app actions — plus what the Terms and this DPA require. If an instruction would violate applicable law, we tell you before acting on it.</p>
+        <p>We process customer data only on your documented instructions, chiefly your uploads, settings and in-app actions. If we believe an instruction would violate applicable law, we will tell you promptly and will not act on it until it is resolved.</p>
       </li>
       <li>
-        <h3><span class="no">3.</span> Confidentiality</h3>
-        <p>Everyone at VerifyKeep who can reach customer data is bound by confidentiality obligations. Access is limited to what each person needs to do their job, logged in an append-only audit trail, and reviewed on change of role or departure.</p>
+        <h3><span class="no">3.</span> Confidentiality and personnel</h3>
+        <p>VerifyKeep is currently operated by one person, who is the only individual with administrative access to production systems. Before anyone else is given access to customer data, they will sign a written confidentiality agreement, and their access will be limited to what their role requires and removed when they leave.</p>
       </li>
       <li>
         <h3><span class="no">4.</span> Technical and organizational measures</h3>
-        <p>We maintain the controls described on the <a href="/security.html">Security page</a>, including:</p>
+        <p>The application is built with the controls below, which are described further on the <a href="/security.html">Security page</a>. They are implemented and tested in code; they have not been independently audited.</p>
         <ul>
-          <li>Encryption of statement files at rest (AWS S3 SSE-KMS) and of all traffic in transit (TLS)</li>
-          <li>PostgreSQL row-level security enforcing workspace isolation at the database layer</li>
-          <li>Required TOTP multi-factor authentication for administrative actions</li>
-          <li>Rate limiting, login lockouts, and automated detection of anomalous access</li>
-          <li>Append-only audit logging of workspace actions</li>
-          <li>Bounded, time- and memory-limited statement processing</li>
+          <li>Statement files encrypted at rest in Amazon S3 with AWS KMS keys; traffic encrypted in transit with TLS</li>
+          <li>PostgreSQL row-level security that keeps each workspace's data separate at the database layer</li>
+          <li>TOTP two-factor authentication required for workspace administrators before administrative actions such as billing, member management, retention changes and statement deletion</li>
+          <li>Rate limits and lockouts on sign-in and two-factor codes, and security-event flags for login bursts, cross-workspace access attempts and unusual export volume</li>
+          <li>An append-only audit log of workspace actions</li>
+          <li>Scanned-page processing isolated in a separate process with time and memory limits</li>
         </ul>
       </li>
       <li>
         <h3><span class="no">5.</span> Subprocessors</h3>
-        <p>You authorize us to use the following categories of subprocessor: cloud hosting and object storage (AWS), email delivery for transactional messages, payment processing (Stripe), and a structured-extraction AI API for statement parsing under no-training API terms.</p>
-        <p>We impose data-protection obligations on each subprocessor at least as protective as this DPA and remain liable for their acts. Material new subprocessors are announced on this page before adoption; you may object within 14 days.</p>
+        <p>You authorize the following subprocessors:</p>
+        <ul>
+          <li><b>Amazon Web Services, Inc.</b>: hosting, database, file storage, transactional email (Amazon SES) and OCR of scanned pages (Amazon Textract). Region: us-east-2 (Ohio, United States).</li>
+          <li><b>OpenAI</b>: structured extraction of transactions from statement text. United States. OpenAI states that API data is not used for training by default and may be kept for up to 30 days for abuse monitoring (<a href="https://openai.com/enterprise-privacy/">OpenAI enterprise privacy</a>).</li>
+          <li><b>Stripe, Inc.</b>: subscription payments. Stripe receives your firm's billing details, not statement data.</li>
+        </ul>
+        <p>We use each provider under its standard data processing terms. We will post any new subprocessor on this page and email workspace administrators at least 14 days before it receives customer data. If you object, you can close your workspace and we will delete your data as described in section 8.</p>
       </li>
       <li>
-        <h3><span class="no">6.</span> Data subject requests</h3>
-        <p>We assist you in answering access, correction, deletion, and portability requests for data we process for you — including the self-service account deletion built into Settings. If a data subject contacts us directly, we redirect them to you unless law requires otherwise.</p>
+        <h3><span class="no">6.</span> Requests from individuals</h3>
+        <p>We will help you respond to access, deletion and portability requests for data we process for you. Administrators can export statements and delete them in the app. If an individual contacts us directly about data we process for you, we will forward the request to you rather than answer it ourselves, unless law requires otherwise.</p>
       </li>
       <li>
-        <h3><span class="no">7.</span> Personal data breach notice</h3>
-        <p>We notify you without undue delay after confirming a personal data breach affecting data we process for you, with what happened, the data affected, and mitigation steps. Administrative contact for breach notices is the workspace admin email on file.</p>
+        <h3><span class="no">7.</span> Security incident notice</h3>
+        <p>If we become aware of a personal data breach affecting data we process for you, we will email your workspace administrators without undue delay. We will not wait until our investigation is finished. The first notice will say what we know at that point, and we will send updates as we learn more: what happened, the data and approximate number of records affected, likely consequences, the steps we have taken and a contact for questions. The final version of this DPA will state a maximum notice time.</p>
       </li>
       <li>
         <h3><span class="no">8.</span> Return and deletion</h3>
-        <p>Your data is exportable at any time in CSV, QBO, Xero, or OFX format. Statements are deleted per your per-client retention setting (after export, 30 days, or 90 days). Closing your account deletes uploaded files and extracted data; audit entries are anonymized so the log survives without your personal data. Stripe retains billing records under its own terms.</p>
+        <p>While a statement is kept, you can export it as CSV, QuickBooks Online-formatted CSV, Xero-formatted CSV or OFX. Exports require a verified statement or an administrator-approved override.</p>
+        <p>Each client has a retention setting: delete 24 hours after first export (or 90 days after processing if never exported), keep 30 days (the default) or keep 90 days. Administrators can delete a finished statement at any time.</p>
+        <p>When the last member of a workspace deletes their account (paid plans must be cancelled first), we delete uploaded files and extracted data and anonymize the audit log. Copies can remain for a limited time: encrypted database backups expire within 14 days, and OpenAI may keep API inputs for up to 30 days as noted in section 5. Stripe keeps billing records under its own terms.</p>
       </li>
       <li>
-        <h3><span class="no">9.</span> Audits and compliance evidence</h3>
-        <p>We make available the information reasonably needed to demonstrate compliance — this DPA, the Security page, our automated test suite, and audit-log exports. On-site audits are replaced by written questionnaires once per year; additional review happens where legally required.</p>
+        <h3><span class="no">9.</span> Compliance information</h3>
+        <p>Once a year, or after a security incident, we will answer a reasonable written security questionnaire and provide this DPA and a summary of our controls. We do not currently hold a SOC 2 or ISO 27001 report.</p>
       </li>
       <li>
-        <h3><span class="no">10.</span> International transfers</h3>
-        <p>Statement processing runs in AWS US regions. Where data protection law requires a transfer mechanism, the EU Standard Contractual Clauses are incorporated by reference as the transfer safeguard.</p>
+        <h3><span class="no">10.</span> Location and international transfers</h3>
+        <p>VerifyKeep stores and processes customer data in the United States. The service is designed for US firms. We do not currently offer EU or UK transfer terms. If your firm is subject to the GDPR or UK GDPR, contact us before uploading statements.</p>
       </li>
       <li>
         <h3><span class="no">11.</span> Liability and precedence</h3>
-        <p>Liability under this DPA follows the limitation in the Terms of Service. If this DPA conflicts with the Terms, this DPA wins for processing matters.</p>
+        <p>Liability under this DPA will follow the limitation of liability in the final Terms of Service, which have not been published yet. If this DPA conflicts with the Terms on a data processing matter, this DPA controls.</p>
       </li>
       <li>
-        <h3><span class="no">12.</span> Contact and signature</h3>
-        <p>Questions and requests: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>. Because this DPA is accepted with the Terms at signup, no separate signature is needed — your account creation is your signature, and ours.</p>
+        <h3><span class="no">12.</span> Acceptance and contact</h3>
+        <p>When final, this DPA will be presented with the Terms of Service at signup, and acceptance will be recorded with your account. Questions: <a href="mailto:hello@verifykeep.com">hello@verifykeep.com</a>.</p>
       </li>
     </ul>
 
     <div class="note">
-      <b>Template, not legal advice:</b> this DPA is written for the common controller–processor relationship. If your firm operates under a specific regime (GDPR, UK GDPR, state privacy laws), have counsel review this template against your obligations.
+      <b>Open items before this DPA takes effect:</b> legal entity name and mailing address; attorney review of this DPA, the Terms of Service and the Privacy notice; final Terms with a limitation of liability; recorded acceptance at signup; confirmation of OpenAI account data controls and the AWS AI-services opt-out for Textract; a maximum breach-notice time; and a decision on EU and UK transfer terms.
     </div>
   </div>
 </main>
